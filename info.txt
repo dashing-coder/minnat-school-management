@@ -1,0 +1,8 @@
+php artisan tinker
+
+\Illuminate\Support\Facades\Auth::validate(['email' => 'admin.school@example.test', 'password' => 'SchoolAdmin@2026']);
+
+$user = \App\Models\User::where('email', 'admin.school@example.test')->firstOrFail();
+
+$user->password = \Illuminate\Support\Facades\Hash::make('SchoolAdmin@2026');
+$user->save();

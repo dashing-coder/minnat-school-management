@@ -1,0 +1,28 @@
+{
+  "schema_tables": 120,
+  "fk_constraints_checked": 262,
+  "rows_existing_baseline": 602,
+  "rows_added_by_extended_seeder": 1723,
+  "rows_total_fresh_rich_sql": 2325,
+  "sample_institutions": 3,
+  "students_total": 75,
+  "attendance_records": 363,
+  "invoices_total": 75,
+  "payments_total": 51,
+  "balanced_journals": 126,
+  "validation_errors": [],
+  "checks": [
+    "MySQL schema table count",
+    "duplicate candidate/primary keys",
+    "cross-tenant and ordinary FK reference existence",
+    "invoice lines equal invoice totals",
+    "invoice payment allocations equal paid amount",
+    "payment allocations equal payment amount",
+    "each posted ledger journal balanced",
+    "issued book and occupied bed state",
+    "stock nonnegative",
+    "payroll net amount equals gross minus deductions",
+    "Hifz accuracy <=100"
+  ],
+  "live_mysql_or_laravel_execution": "NOT RUN (no local MySQL/Laravel runtime available)"
+}

@@ -1,53 +1,47 @@
-# CampusSphere Laravel ERP — বাংলা ইনস্টলেশন গাইড
+# CampusSphere Laravel ERP — Sample Data ইনস্টলেশন (বাংলা)
 
-এই ZIP-এ Laravel 12 + MySQL ব্যবহার করে একটি **ডেভেলপমেন্ট ওয়েবসাইট বেসলাইন** দেওয়া হয়েছে। এটি সম্পূর্ণ প্রোডাকশন ERP নয়।
+আপনার Laravel ERP সাইট আগে থেকেই চালু আছে এবং `admin.school@example.test` দিয়ে লগইন করতে পারছেন। তাই **বিদ্যমান ডাটাবেজে SQL Import করবেন না**। নতুন **Additive Seeder** ব্যবহার করুন।
 
-## যা লাগবে
+## আপনার চালু `scm-system` ডাটাবেজের জন্য
 
-PHP 8.2 বা তার বেশি, Composer 2, MySQL 8 বা তার বেশি। কম্পিউটারে Composer-এর মাধ্যমে Laravel প্যাকেজ ইনস্টল করতে ইন্টারনেট প্রয়োজন হতে পারে।
+1. **প্রথমে phpMyAdmin থেকে `scm-system` ডাটাবেজের Backup (Export) নিন।** Laravel ফোল্ডারেরও Backup রাখুন।
+2. ZIP থেকে `database/seeders/SmsExtendedDemoSeeder.php` ফাইলটি আপনার Laravel প্রজেক্টের `database/seeders/` ফোল্ডারে কপি করুন।
+3. `.env` ফাইলে সাময়িকভাবে যোগ করুন:
 
-## ধাপে ধাপে (Windows PowerShell)
-
-১. ZIP Extract করে যে ফোল্ডারে **artisan** এবং **composer.json** আছে, সেখানে PowerShell খুলুন।
-
-২. MySQL-এ নতুন খালি ডাটাবেস তৈরি করুন: `campussphere_local`
-
-৩. নিচের কমান্ড চালান:
-
-```powershell
-composer install
-Copy-Item .env.example .env
-php artisan key:generate
+```dotenv
+APP_ENV=local
+SMS_ALLOW_RICH_DEMO_SEED=true
 ```
 
-৪. `.env` ফাইলে `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD` আপনার লোকাল MySQL অনুযায়ী ঠিক করুন। `APP_ENV=local` থাকবে।
-
-৫. টেবিল তৈরি করুন:
+4. Laravel-এর `artisan` ফাইল যে ফোল্ডারে আছে, সেখানে PowerShell খুলে চালান:
 
 ```powershell
-php artisan migrate
+php artisan config:clear
+php artisan migrate:status
+php artisan db:seed --class=SmsExtendedDemoSeeder
 ```
 
-৬. নমুনা ডাটা বসাতে `.env`-এ অস্থায়ীভাবে `SMS_ALLOW_DEMO_SEED=true` দিয়ে চালান:
+5. সফল হলে `.env` থেকে `SMS_ALLOW_RICH_DEMO_SEED=true` মুছে ফেলুন অথবা `false` করে দিন।
+6. চালান: `php artisan sms:qa` এবং Dashboard, Student List, Attendance, Fee Invoice, Examination, Library, Hostel, Hifz ফিচারগুলো দেখুন।
 
-```powershell
-php artisan db:seed --class=SmsFullDemoSeeder
-```
+**গুরুত্বপূর্ণ:** আগে থেকে থাকা Administrator email ও password **পরিবর্তন করা হয় না**। নতুন User account তৈরি হয় না; শিক্ষার্থীদের `user_id` থাকে `NULL` (অর্থাৎ ওয়েবসাইটে লগইনের জন্য আলাদা Student Account তৈরি হয় না)।
 
-**সতর্কতা:** টার্মিনালে দেখানো ডেমো ইমেইল ও পাসওয়ার্ড সংরক্ষণ করুন। পাসওয়ার্ডগুলো স্বয়ংক্রিয়ভাবে এলোমেলোভাবে তৈরি হয়। এই Seeder শুধু **খালি লোকাল ডাটাবেসে** চলবে। কাজ শেষ হলে `SMS_ALLOW_DEMO_SEED=false` করে দিন।
+## নতুন খালি ডাটাবেজের জন্য
 
-৭. ওয়েবসাইট চালু করুন:
+Laravel অ্যাপ ইনস্টল থাকা অবস্থায় প্রথমে `php artisan migrate`, পরে `SmsFullDemoSeeder`, সবশেষে `SmsExtendedDemoSeeder` চালান। দুটি Seeder চালাতে `.env`-এ তাদের আলাদা opt-in flag সক্রিয় করতে হয়; কাজ শেষে flag বন্ধ করুন।
 
-```powershell
-php artisan serve
-```
+## phpMyAdmin SQL Import কখন করবেন?
 
-ব্রাউজারে খুলুন: http://127.0.0.1:8000
+`database/sql/SMS_ERP_MYSQL8_FRESH_RICH_DEMO.sql` **শুধুমাত্র আলাদা নতুন, সম্পূর্ণ খালি ডাটাবেজে** Import করবেন। আপনার বর্তমানে চালু `scm-system` ডাটাবেজে Import করবেন না। তা করলে existing table conflict হবে। SQL Import-এর পরে Laravel migration history তৈরি হয় না, তাই একই ডাটাবেজে নতুন করে `php artisan migrate` চালাবেন না।
 
-## খুব গুরুত্বপূর্ণ
+## নমুনা ডাটায় যা আছে
 
-- Laravel migration ও sample SQL import **একসঙ্গে করবেন না**।
-- ZIP-এ Laravel vendor dependencies অন্তর্ভুক্ত নেই; `composer install` করতে হবে।
-- ২০টি মডিউলের ইন্টারফেস আছে, কিন্তু সব ব্যবসায়িক কাজের সম্পূর্ণ লজিক এখনো তৈরি হয়নি।
-- প্রকৃত ছাত্র-ছাত্রী বা আর্থিক তথ্য এই আনটেস্টেড সিস্টেমে ব্যবহার করবেন না।
-- প্রোডাকশনে যাওয়ার আগে role permission, payment, accounting ও security পরীক্ষা করতে হবে।
+- ৩টি ডেমো প্রতিষ্ঠান: School, College, Madrasha।
+- অতিরিক্ত ৭২ জন শিক্ষার্থী ও ৩৬ জন Guardian।
+- ৩৬০টি অতিরিক্ত Student Attendance record।
+- ৭২টি অতিরিক্ত Fee Invoice এবং ৪৮টি Payment।
+- ১২০টি অতিরিক্ত balanced Ledger Journal (২৪০টি Journal Line)।
+- Exam Marks, Results, Draft Payroll, Library, Hostel, Transport, Inventory, Donations, Scholarship, Hifz Progress।
+- **মোট ১,৭২৩টি নতুন record**, আগের ৬০২টি মিলিয়ে **২,৩২৫টি fictional sample record**।
+
+এই ডাটাগুলো শুধুমাত্র Testing / Development-এর জন্য। Laravel/MySQL-এ সরাসরি রান করে সম্পূর্ণ কার্যকারিতা যাচাই এখানে করা হয়নি।

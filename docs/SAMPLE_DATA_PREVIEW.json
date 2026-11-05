@@ -1,0 +1,840 @@
+{
+  "institutions": [
+    {
+      "code": "SCHDEMO",
+      "name": "Sunrise Model School"
+    },
+    {
+      "code": "COLDEMO",
+      "name": "Horizon Science College"
+    },
+    {
+      "code": "MADDEMO",
+      "name": "Noorul Huda Madrasha"
+    }
+  ],
+  "counts": {
+    "users": {
+      "original": 8,
+      "extended": 0,
+      "total": 8
+    },
+    "institutions": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "campuses": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "institution_memberships": {
+      "original": 8,
+      "extended": 0,
+      "total": 8
+    },
+    "membership_campuses": {
+      "original": 8,
+      "extended": 0,
+      "total": 8
+    },
+    "institution_roles": {
+      "original": 18,
+      "extended": 0,
+      "total": 18
+    },
+    "sms_permissions": {
+      "original": 38,
+      "extended": 0,
+      "total": 38
+    },
+    "institution_role_permissions": {
+      "original": 114,
+      "extended": 0,
+      "total": 114
+    },
+    "membership_roles": {
+      "original": 8,
+      "extended": 0,
+      "total": 8
+    },
+    "institution_module_settings": {
+      "original": 66,
+      "extended": 0,
+      "total": 66
+    },
+    "academic_sessions": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "academic_departments": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "academic_terms": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "academic_calendar_events": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "guardians": {
+      "original": 3,
+      "extended": 36,
+      "total": 39
+    },
+    "students": {
+      "original": 3,
+      "extended": 72,
+      "total": 75
+    },
+    "admission_cycles": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "employees": {
+      "original": 3,
+      "extended": 9,
+      "total": 12
+    },
+    "payroll_runs": {
+      "original": 3,
+      "extended": 3,
+      "total": 6
+    },
+    "grading_scales": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "chart_of_accounts": {
+      "original": 9,
+      "extended": 0,
+      "total": 9
+    },
+    "payment_methods": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "ledger_journals": {
+      "original": 6,
+      "extended": 120,
+      "total": 126
+    },
+    "financial_period_closings": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "scholarships": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "notices": {
+      "original": 3,
+      "extended": 6,
+      "total": 9
+    },
+    "direct_messages": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "notification_templates": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "library_books": {
+      "original": 3,
+      "extended": 9,
+      "total": 12
+    },
+    "vehicles": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "hostels": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "suppliers": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "inventory_items": {
+      "original": 3,
+      "extended": 9,
+      "total": 12
+    },
+    "fixed_assets": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "donors": {
+      "original": 3,
+      "extended": 6,
+      "total": 9
+    },
+    "donation_funds": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "certificate_templates": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "visitor_logs": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "campus_events": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "room_bookings": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "integration_connections": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "report_exports": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "academic_programs": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "subjects": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "student_guardians": {
+      "original": 3,
+      "extended": 72,
+      "total": 75
+    },
+    "student_documents": {
+      "original": 3,
+      "extended": 72,
+      "total": 75
+    },
+    "student_transfers": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "student_health_records": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "student_incidents": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "student_leave_requests": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "staff_attendance": {
+      "original": 3,
+      "extended": 36,
+      "total": 39
+    },
+    "staff_leave_requests": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "payslips": {
+      "original": 3,
+      "extended": 9,
+      "total": 12
+    },
+    "staff_appraisals": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "grading_bands": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "fee_heads": {
+      "original": 3,
+      "extended": 3,
+      "total": 6
+    },
+    "student_invoices": {
+      "original": 3,
+      "extended": 72,
+      "total": 75
+    },
+    "ledger_lines": {
+      "original": 12,
+      "extended": 240,
+      "total": 252
+    },
+    "bank_accounts": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "expenses": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "scholarship_awards": {
+      "original": 3,
+      "extended": 9,
+      "total": 12
+    },
+    "notification_deliveries": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "parent_meetings": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "library_copies": {
+      "original": 3,
+      "extended": 18,
+      "total": 21
+    },
+    "transport_routes": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "hostel_rooms": {
+      "original": 3,
+      "extended": 6,
+      "total": 9
+    },
+    "meal_plans": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "stock_movements": {
+      "original": 3,
+      "extended": 18,
+      "total": 21
+    },
+    "purchase_orders": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "asset_assignments": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "hifz_groups": {
+      "original": 1,
+      "extended": 0,
+      "total": 1
+    },
+    "donations": {
+      "original": 3,
+      "extended": 6,
+      "total": 9
+    },
+    "fund_expenses": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "welfare_cases": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "issued_certificates": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "integration_logs": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "alumni_profiles": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "class_levels": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "payslip_items": {
+      "original": 3,
+      "extended": 12,
+      "total": 15
+    },
+    "student_invoice_lines": {
+      "original": 3,
+      "extended": 72,
+      "total": 75
+    },
+    "student_payments": {
+      "original": 3,
+      "extended": 48,
+      "total": 51
+    },
+    "bank_reconciliations": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "library_loans": {
+      "original": 3,
+      "extended": 6,
+      "total": 9
+    },
+    "transport_stops": {
+      "original": 3,
+      "extended": 6,
+      "total": 9
+    },
+    "hostel_beds": {
+      "original": 3,
+      "extended": 18,
+      "total": 21
+    },
+    "purchase_order_lines": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "hifz_enrollments": {
+      "original": 1,
+      "extended": 8,
+      "total": 9
+    },
+    "class_sections": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "class_subjects": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "admission_applications": {
+      "original": 3,
+      "extended": 24,
+      "total": 27
+    },
+    "examinations": {
+      "original": 3,
+      "extended": 3,
+      "total": 6
+    },
+    "fee_plans": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "payment_allocations": {
+      "original": 3,
+      "extended": 48,
+      "total": 51
+    },
+    "payment_refunds": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "student_transport_assignments": {
+      "original": 3,
+      "extended": 12,
+      "total": 15
+    },
+    "hostel_allocations": {
+      "original": 3,
+      "extended": 9,
+      "total": 12
+    },
+    "hifz_progress_logs": {
+      "original": 1,
+      "extended": 24,
+      "total": 25
+    },
+    "hifz_assessments": {
+      "original": 1,
+      "extended": 8,
+      "total": 9
+    },
+    "course_offerings": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "class_routines": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "lesson_plans": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "assignments": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "enrollments": {
+      "original": 3,
+      "extended": 72,
+      "total": 75
+    },
+    "admission_offers": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "attendance_sessions": {
+      "original": 3,
+      "extended": 15,
+      "total": 18
+    },
+    "teacher_assignments": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "exam_papers": {
+      "original": 3,
+      "extended": 3,
+      "total": 6
+    },
+    "published_results": {
+      "original": 3,
+      "extended": 72,
+      "total": 75
+    },
+    "fee_plan_lines": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "hostel_leave_requests": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "lms_resources": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "student_promotions": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "assignment_submissions": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    },
+    "student_attendance": {
+      "original": 3,
+      "extended": 360,
+      "total": 363
+    },
+    "exam_marks": {
+      "original": 3,
+      "extended": 72,
+      "total": 75
+    },
+    "exam_recheck_requests": {
+      "original": 3,
+      "extended": 0,
+      "total": 3
+    }
+  },
+  "samples": {
+    "students": [
+      {
+        "institution_id": 1,
+        "user_id": null,
+        "campus_id": 1,
+        "admission_no": "SCH-EX-0001",
+        "name": "Anika Rahman",
+        "gender": "female",
+        "birth_date": "2014-02-02",
+        "blood_group": "B+",
+        "status": "active",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 4
+      },
+      {
+        "institution_id": 1,
+        "user_id": null,
+        "campus_id": 1,
+        "admission_no": "SCH-EX-0002",
+        "name": "Shahid Hasan",
+        "gender": "male",
+        "birth_date": "2014-03-03",
+        "blood_group": "O+",
+        "status": "active",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 5
+      }
+    ],
+    "enrollments": [
+      {
+        "institution_id": 1,
+        "student_id": 4,
+        "academic_session_id": 1,
+        "class_section_id": 1,
+        "roll_no": "21",
+        "status": "active",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 4
+      },
+      {
+        "institution_id": 1,
+        "student_id": 5,
+        "academic_session_id": 1,
+        "class_section_id": 1,
+        "roll_no": "22",
+        "status": "active",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 5
+      }
+    ],
+    "student_attendance": [
+      {
+        "institution_id": 1,
+        "attendance_session_id": 4,
+        "student_id": 4,
+        "status": "excused",
+        "minutes_late": 0,
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 4
+      },
+      {
+        "institution_id": 1,
+        "attendance_session_id": 4,
+        "student_id": 5,
+        "status": "present",
+        "minutes_late": 0,
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 5
+      }
+    ],
+    "student_invoices": [
+      {
+        "institution_id": 1,
+        "student_id": 4,
+        "invoice_no": "EX-INV-S-0001",
+        "issued_on": "2026-10-01",
+        "due_on": "2026-10-15",
+        "total_amount": "2500.00",
+        "paid_amount": "1250.00",
+        "status": "partial",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 4
+      },
+      {
+        "institution_id": 1,
+        "student_id": 5,
+        "invoice_no": "EX-INV-S-0002",
+        "issued_on": "2026-10-01",
+        "due_on": "2026-10-15",
+        "total_amount": "2650.00",
+        "paid_amount": "2650.00",
+        "status": "paid",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 5
+      }
+    ],
+    "student_payments": [
+      {
+        "institution_id": 1,
+        "student_id": 4,
+        "student_invoice_id": 4,
+        "payment_method_id": 1,
+        "amount": "1250.00",
+        "paid_on": "2026-10-12",
+        "reference_no": "EX-PAY-S-0001",
+        "status": "posted",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 4
+      },
+      {
+        "institution_id": 1,
+        "student_id": 5,
+        "student_invoice_id": 5,
+        "payment_method_id": 1,
+        "amount": "2650.00",
+        "paid_on": "2026-10-12",
+        "reference_no": "EX-PAY-S-0002",
+        "status": "posted",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 5
+      }
+    ],
+    "published_results": [
+      {
+        "institution_id": 1,
+        "examination_id": 4,
+        "student_id": 4,
+        "percentage": "34.00",
+        "gpa": "1.00",
+        "result": "pass",
+        "status": "published",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 4
+      },
+      {
+        "institution_id": 1,
+        "examination_id": 4,
+        "student_id": 5,
+        "percentage": "41.00",
+        "gpa": "2.00",
+        "result": "pass",
+        "status": "published",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 5
+      }
+    ],
+    "hifz_progress_logs": [
+      {
+        "institution_id": 3,
+        "hifz_enrollment_id": 2,
+        "logged_on": "2026-10-16",
+        "sabaq": "Surah Al-Mulk, verses 5-9",
+        "sabqi": "Surah Ar-Rahman revision",
+        "manzil": "Juz Amma daily revision",
+        "juz_completed": 2,
+        "accuracy_percent": "86.00",
+        "notes": "Fictional Hifz progress for testing.",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 2
+      },
+      {
+        "institution_id": 3,
+        "hifz_enrollment_id": 2,
+        "logged_on": "2026-10-17",
+        "sabaq": "Surah Al-Mulk, verses 10-14",
+        "sabqi": "Surah Ar-Rahman revision",
+        "manzil": "Juz Amma daily revision",
+        "juz_completed": 3,
+        "accuracy_percent": "87.00",
+        "notes": "Fictional Hifz progress for testing.",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 3
+      }
+    ],
+    "library_loans": [
+      {
+        "institution_id": 1,
+        "library_copy_id": 4,
+        "student_id": 4,
+        "issued_on": "2026-10-20",
+        "due_on": "2026-11-20",
+        "returned_on": null,
+        "fine_amount": "0.00",
+        "status": "issued",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 4
+      },
+      {
+        "institution_id": 1,
+        "library_copy_id": 6,
+        "student_id": 5,
+        "issued_on": "2026-10-20",
+        "due_on": "2026-11-20",
+        "returned_on": null,
+        "fine_amount": "0.00",
+        "status": "issued",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 5
+      }
+    ],
+    "stock_movements": [
+      {
+        "institution_id": 1,
+        "inventory_item_id": 4,
+        "quantity": 100,
+        "movement_type": "in",
+        "reference_no": "EX-STOCK-S-1-IN",
+        "moved_on": "2026-10-18",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 4
+      },
+      {
+        "institution_id": 1,
+        "inventory_item_id": 4,
+        "quantity": -15,
+        "movement_type": "out",
+        "reference_no": "EX-STOCK-S-1-OUT",
+        "moved_on": "2026-10-18",
+        "created_at": "2026-11-05 09:00:00",
+        "updated_at": "2026-11-05 09:00:00",
+        "id": 5
+      }
+    ]
+  }
+}
