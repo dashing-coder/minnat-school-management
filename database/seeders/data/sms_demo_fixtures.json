@@ -1,0 +1,5514 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "School Administrator",
+      "email": "admin.school@example.test",
+      "email_verified_at": "2026-11-05 08:00:00",
+      "password": null,
+      "remember_token": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "name": "Teacher Nabila",
+      "email": "teacher.school@example.test",
+      "email_verified_at": "2026-11-05 08:00:00",
+      "password": null,
+      "remember_token": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "name": "Accounts Officer",
+      "email": "accounts.school@example.test",
+      "email_verified_at": "2026-11-05 08:00:00",
+      "password": null,
+      "remember_token": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 4,
+      "name": "Demo Parent",
+      "email": "parent.school@example.test",
+      "email_verified_at": "2026-11-05 08:00:00",
+      "password": null,
+      "remember_token": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 5,
+      "name": "Student Ayesha",
+      "email": "student.school@example.test",
+      "email_verified_at": "2026-11-05 08:00:00",
+      "password": null,
+      "remember_token": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 6,
+      "name": "College Administrator",
+      "email": "admin.college@example.test",
+      "email_verified_at": "2026-11-05 08:00:00",
+      "password": null,
+      "remember_token": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 7,
+      "name": "Madrasha Administrator",
+      "email": "admin.madrasha@example.test",
+      "email_verified_at": "2026-11-05 08:00:00",
+      "password": null,
+      "remember_token": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 8,
+      "name": "Ustad Mahmud",
+      "email": "ustad.madrasha@example.test",
+      "email_verified_at": "2026-11-05 08:00:00",
+      "password": null,
+      "remember_token": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "institutions": [
+    {
+      "id": 1,
+      "code": "SCHDEMO",
+      "slug": "demo-sunrise-school",
+      "name": "Sunrise Model School",
+      "type": "school",
+      "status": "active",
+      "timezone": "Asia/Dhaka",
+      "locale": "bn",
+      "currency": "BDT",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00",
+      "deleted_at": null
+    },
+    {
+      "id": 2,
+      "code": "COLDEMO",
+      "slug": "demo-horizon-college",
+      "name": "Horizon Science College",
+      "type": "college",
+      "status": "active",
+      "timezone": "Asia/Dhaka",
+      "locale": "bn",
+      "currency": "BDT",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00",
+      "deleted_at": null
+    },
+    {
+      "id": 3,
+      "code": "MADDEMO",
+      "slug": "demo-noor-madrasha",
+      "name": "Noorul Huda Madrasha",
+      "type": "madrasha",
+      "status": "active",
+      "timezone": "Asia/Dhaka",
+      "locale": "bn",
+      "currency": "BDT",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00",
+      "deleted_at": null
+    }
+  ],
+  "campuses": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "code": "MAIN",
+      "name": "Sunrise Model School Main Campus",
+      "is_main": 1,
+      "is_active": 1,
+      "address": "Demo address, Bangladesh",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "code": "MAIN",
+      "name": "Horizon Science College Main Campus",
+      "is_main": 1,
+      "is_active": 1,
+      "address": "Demo address, Bangladesh",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "code": "MAIN",
+      "name": "Noorul Huda Madrasha Main Campus",
+      "is_main": 1,
+      "is_active": 1,
+      "address": "Demo address, Bangladesh",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "academic_sessions": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "code": "2026",
+      "name": "Academic Year 2026",
+      "starts_on": "2026-01-01",
+      "ends_on": "2026-12-31",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "code": "2026",
+      "name": "Academic Year 2026",
+      "starts_on": "2026-01-01",
+      "ends_on": "2026-12-31",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "code": "2026",
+      "name": "Academic Year 2026",
+      "starts_on": "2026-01-01",
+      "ends_on": "2026-12-31",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "institution_roles": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "key": "admin",
+      "name": "Admin",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 1,
+      "key": "teacher",
+      "name": "Teacher",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 1,
+      "key": "accountant",
+      "name": "Accountant",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 4,
+      "institution_id": 1,
+      "key": "parent",
+      "name": "Parent",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 5,
+      "institution_id": 1,
+      "key": "student",
+      "name": "Student",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 6,
+      "institution_id": 1,
+      "key": "hifz_teacher",
+      "name": "Hifz Teacher",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 7,
+      "institution_id": 2,
+      "key": "admin",
+      "name": "Admin",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 8,
+      "institution_id": 2,
+      "key": "teacher",
+      "name": "Teacher",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 9,
+      "institution_id": 2,
+      "key": "accountant",
+      "name": "Accountant",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 10,
+      "institution_id": 2,
+      "key": "parent",
+      "name": "Parent",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 11,
+      "institution_id": 2,
+      "key": "student",
+      "name": "Student",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 12,
+      "institution_id": 2,
+      "key": "hifz_teacher",
+      "name": "Hifz Teacher",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 13,
+      "institution_id": 3,
+      "key": "admin",
+      "name": "Admin",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 14,
+      "institution_id": 3,
+      "key": "teacher",
+      "name": "Teacher",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 15,
+      "institution_id": 3,
+      "key": "accountant",
+      "name": "Accountant",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 16,
+      "institution_id": 3,
+      "key": "parent",
+      "name": "Parent",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 17,
+      "institution_id": 3,
+      "key": "student",
+      "name": "Student",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 18,
+      "institution_id": 3,
+      "key": "hifz_teacher",
+      "name": "Hifz Teacher",
+      "is_system": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "institution_memberships": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "user_id": 1,
+      "status": "active",
+      "can_access_all_campuses": 1,
+      "joined_at": "2026-11-05 08:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 1,
+      "user_id": 2,
+      "status": "active",
+      "can_access_all_campuses": 1,
+      "joined_at": "2026-11-05 08:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 1,
+      "user_id": 3,
+      "status": "active",
+      "can_access_all_campuses": 1,
+      "joined_at": "2026-11-05 08:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 4,
+      "institution_id": 1,
+      "user_id": 4,
+      "status": "active",
+      "can_access_all_campuses": 1,
+      "joined_at": "2026-11-05 08:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 5,
+      "institution_id": 1,
+      "user_id": 5,
+      "status": "active",
+      "can_access_all_campuses": 1,
+      "joined_at": "2026-11-05 08:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 6,
+      "institution_id": 2,
+      "user_id": 6,
+      "status": "active",
+      "can_access_all_campuses": 1,
+      "joined_at": "2026-11-05 08:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 7,
+      "institution_id": 3,
+      "user_id": 7,
+      "status": "active",
+      "can_access_all_campuses": 1,
+      "joined_at": "2026-11-05 08:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 8,
+      "institution_id": 3,
+      "user_id": 8,
+      "status": "active",
+      "can_access_all_campuses": 1,
+      "joined_at": "2026-11-05 08:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "membership_campuses": [
+    {
+      "institution_id": 1,
+      "membership_id": 1,
+      "campus_id": 1,
+      "created_at": "2026-11-05 08:00:00"
+    },
+    {
+      "institution_id": 1,
+      "membership_id": 2,
+      "campus_id": 1,
+      "created_at": "2026-11-05 08:00:00"
+    },
+    {
+      "institution_id": 1,
+      "membership_id": 3,
+      "campus_id": 1,
+      "created_at": "2026-11-05 08:00:00"
+    },
+    {
+      "institution_id": 1,
+      "membership_id": 4,
+      "campus_id": 1,
+      "created_at": "2026-11-05 08:00:00"
+    },
+    {
+      "institution_id": 1,
+      "membership_id": 5,
+      "campus_id": 1,
+      "created_at": "2026-11-05 08:00:00"
+    },
+    {
+      "institution_id": 2,
+      "membership_id": 6,
+      "campus_id": 2,
+      "created_at": "2026-11-05 08:00:00"
+    },
+    {
+      "institution_id": 3,
+      "membership_id": 7,
+      "campus_id": 3,
+      "created_at": "2026-11-05 08:00:00"
+    },
+    {
+      "institution_id": 3,
+      "membership_id": 8,
+      "campus_id": 3,
+      "created_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "membership_roles": [
+    {
+      "institution_id": 1,
+      "membership_id": 1,
+      "role_id": 1,
+      "created_at": "2026-11-05 08:00:00"
+    },
+    {
+      "institution_id": 1,
+      "membership_id": 2,
+      "role_id": 2,
+      "created_at": "2026-11-05 08:00:00"
+    },
+    {
+      "institution_id": 1,
+      "membership_id": 3,
+      "role_id": 3,
+      "created_at": "2026-11-05 08:00:00"
+    },
+    {
+      "institution_id": 1,
+      "membership_id": 4,
+      "role_id": 4,
+      "created_at": "2026-11-05 08:00:00"
+    },
+    {
+      "institution_id": 1,
+      "membership_id": 5,
+      "role_id": 5,
+      "created_at": "2026-11-05 08:00:00"
+    },
+    {
+      "institution_id": 2,
+      "membership_id": 6,
+      "role_id": 7,
+      "created_at": "2026-11-05 08:00:00"
+    },
+    {
+      "institution_id": 3,
+      "membership_id": 7,
+      "role_id": 13,
+      "created_at": "2026-11-05 08:00:00"
+    },
+    {
+      "institution_id": 3,
+      "membership_id": 8,
+      "role_id": 18,
+      "created_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "institution_module_settings": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "module_key": "academic",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 1,
+      "module_key": "admission",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 1,
+      "module_key": "analytics",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 4,
+      "institution_id": 1,
+      "module_key": "attendance",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 5,
+      "institution_id": 1,
+      "module_key": "campus",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 6,
+      "institution_id": 1,
+      "module_key": "certificates",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 7,
+      "institution_id": 1,
+      "module_key": "communication",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 8,
+      "institution_id": 1,
+      "module_key": "donations",
+      "enabled": 0,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 9,
+      "institution_id": 1,
+      "module_key": "exams",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 10,
+      "institution_id": 1,
+      "module_key": "finance",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 11,
+      "institution_id": 1,
+      "module_key": "hifz",
+      "enabled": 0,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 12,
+      "institution_id": 1,
+      "module_key": "hostel",
+      "enabled": 0,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 13,
+      "institution_id": 1,
+      "module_key": "hr",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 14,
+      "institution_id": 1,
+      "module_key": "integrations",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 15,
+      "institution_id": 1,
+      "module_key": "inventory",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 16,
+      "institution_id": 1,
+      "module_key": "library",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 17,
+      "institution_id": 1,
+      "module_key": "lifecycle",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 18,
+      "institution_id": 1,
+      "module_key": "lms",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 19,
+      "institution_id": 1,
+      "module_key": "scholarship",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 20,
+      "institution_id": 1,
+      "module_key": "sis",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 21,
+      "institution_id": 1,
+      "module_key": "transport",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 22,
+      "institution_id": 1,
+      "module_key": "welfare",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 23,
+      "institution_id": 2,
+      "module_key": "academic",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 24,
+      "institution_id": 2,
+      "module_key": "admission",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 25,
+      "institution_id": 2,
+      "module_key": "analytics",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 26,
+      "institution_id": 2,
+      "module_key": "attendance",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 27,
+      "institution_id": 2,
+      "module_key": "campus",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 28,
+      "institution_id": 2,
+      "module_key": "certificates",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 29,
+      "institution_id": 2,
+      "module_key": "communication",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 30,
+      "institution_id": 2,
+      "module_key": "donations",
+      "enabled": 0,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 31,
+      "institution_id": 2,
+      "module_key": "exams",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 32,
+      "institution_id": 2,
+      "module_key": "finance",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 33,
+      "institution_id": 2,
+      "module_key": "hifz",
+      "enabled": 0,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 34,
+      "institution_id": 2,
+      "module_key": "hostel",
+      "enabled": 0,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 35,
+      "institution_id": 2,
+      "module_key": "hr",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 36,
+      "institution_id": 2,
+      "module_key": "integrations",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 37,
+      "institution_id": 2,
+      "module_key": "inventory",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 38,
+      "institution_id": 2,
+      "module_key": "library",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 39,
+      "institution_id": 2,
+      "module_key": "lifecycle",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 40,
+      "institution_id": 2,
+      "module_key": "lms",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 41,
+      "institution_id": 2,
+      "module_key": "scholarship",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 42,
+      "institution_id": 2,
+      "module_key": "sis",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 43,
+      "institution_id": 2,
+      "module_key": "transport",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 44,
+      "institution_id": 2,
+      "module_key": "welfare",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 45,
+      "institution_id": 3,
+      "module_key": "academic",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 46,
+      "institution_id": 3,
+      "module_key": "admission",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 47,
+      "institution_id": 3,
+      "module_key": "analytics",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 48,
+      "institution_id": 3,
+      "module_key": "attendance",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 49,
+      "institution_id": 3,
+      "module_key": "campus",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 50,
+      "institution_id": 3,
+      "module_key": "certificates",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 51,
+      "institution_id": 3,
+      "module_key": "communication",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 52,
+      "institution_id": 3,
+      "module_key": "donations",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 53,
+      "institution_id": 3,
+      "module_key": "exams",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 54,
+      "institution_id": 3,
+      "module_key": "finance",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 55,
+      "institution_id": 3,
+      "module_key": "hifz",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 56,
+      "institution_id": 3,
+      "module_key": "hostel",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 57,
+      "institution_id": 3,
+      "module_key": "hr",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 58,
+      "institution_id": 3,
+      "module_key": "integrations",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 59,
+      "institution_id": 3,
+      "module_key": "inventory",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 60,
+      "institution_id": 3,
+      "module_key": "library",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 61,
+      "institution_id": 3,
+      "module_key": "lifecycle",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 62,
+      "institution_id": 3,
+      "module_key": "lms",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 63,
+      "institution_id": 3,
+      "module_key": "scholarship",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 64,
+      "institution_id": 3,
+      "module_key": "sis",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 65,
+      "institution_id": 3,
+      "module_key": "transport",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 66,
+      "institution_id": 3,
+      "module_key": "welfare",
+      "enabled": 1,
+      "options": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "sms_permissions": [
+    {
+      "id": 1,
+      "key": "dashboard.view",
+      "module": "dashboard",
+      "label": "View dashboard",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "key": "institutions.manage",
+      "module": "institutions",
+      "label": "Manage institution settings",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "key": "campuses.view",
+      "module": "campuses",
+      "label": "View authorized campuses",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 4,
+      "key": "campuses.manage",
+      "module": "campuses",
+      "label": "Manage campuses",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 5,
+      "key": "memberships.view",
+      "module": "security",
+      "label": "View institution memberships",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 6,
+      "key": "memberships.manage",
+      "module": "security",
+      "label": "Manage institution memberships",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 7,
+      "key": "roles.manage",
+      "module": "security",
+      "label": "Manage role assignments",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 8,
+      "key": "students.view",
+      "module": "students",
+      "label": "View authorized student records",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 9,
+      "key": "students.create",
+      "module": "students",
+      "label": "Create student records",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 10,
+      "key": "students.update",
+      "module": "students",
+      "label": "Update authorized student records",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 11,
+      "key": "students.export",
+      "module": "students",
+      "label": "Export authorized student records",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 12,
+      "key": "admissions.view",
+      "module": "admissions",
+      "label": "View admissions",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 13,
+      "key": "admissions.manage",
+      "module": "admissions",
+      "label": "Manage admissions",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 14,
+      "key": "academics.manage",
+      "module": "academics",
+      "label": "Manage curriculum and classes",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 15,
+      "key": "attendance.view",
+      "module": "attendance",
+      "label": "View attendance",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 16,
+      "key": "attendance.record",
+      "module": "attendance",
+      "label": "Record assigned attendance",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 17,
+      "key": "attendance.approve_correction",
+      "module": "attendance",
+      "label": "Approve attendance corrections",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 18,
+      "key": "exams.view",
+      "module": "examinations",
+      "label": "View examinations",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 19,
+      "key": "marks.enter",
+      "module": "examinations",
+      "label": "Enter assigned subject marks",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 20,
+      "key": "results.approve",
+      "module": "examinations",
+      "label": "Approve examination results",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 21,
+      "key": "results.publish",
+      "module": "examinations",
+      "label": "Publish examination results",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 22,
+      "key": "fees.view",
+      "module": "finance",
+      "label": "View fee information",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 23,
+      "key": "fees.collect",
+      "module": "finance",
+      "label": "Collect approved fees",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 24,
+      "key": "fees.adjust",
+      "module": "finance",
+      "label": "Manage authorized fee adjustments",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 25,
+      "key": "refunds.request",
+      "module": "finance",
+      "label": "Request refund",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 26,
+      "key": "refunds.approve",
+      "module": "finance",
+      "label": "Approve refund",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 27,
+      "key": "accounting.post",
+      "module": "finance",
+      "label": "Post journal transactions",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 28,
+      "key": "accounting.reconcile",
+      "module": "finance",
+      "label": "Reconcile accounts",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 29,
+      "key": "hr.view",
+      "module": "hr",
+      "label": "View authorized staff data",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 30,
+      "key": "payroll.process",
+      "module": "hr",
+      "label": "Process payroll",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 31,
+      "key": "payroll.approve",
+      "module": "hr",
+      "label": "Approve payroll",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 32,
+      "key": "hifz.progress.record",
+      "module": "hifz",
+      "label": "Record assigned Hifz progress",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 33,
+      "key": "library.manage",
+      "module": "library",
+      "label": "Manage library",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 34,
+      "key": "hostel.manage",
+      "module": "hostel",
+      "label": "Manage hostel operations",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 35,
+      "key": "inventory.manage",
+      "module": "inventory",
+      "label": "Manage institutional inventory",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 36,
+      "key": "donations.manage",
+      "module": "donations",
+      "label": "Manage donations and restricted funds",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 37,
+      "key": "reports.export",
+      "module": "reports",
+      "label": "Export authorized reports",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 38,
+      "key": "audit.view",
+      "module": "security",
+      "label": "View authorized audit logs",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "institution_role_permissions": [
+    {
+      "role_id": 1,
+      "permission_id": 1
+    },
+    {
+      "role_id": 1,
+      "permission_id": 2
+    },
+    {
+      "role_id": 1,
+      "permission_id": 3
+    },
+    {
+      "role_id": 1,
+      "permission_id": 4
+    },
+    {
+      "role_id": 1,
+      "permission_id": 5
+    },
+    {
+      "role_id": 1,
+      "permission_id": 6
+    },
+    {
+      "role_id": 1,
+      "permission_id": 7
+    },
+    {
+      "role_id": 1,
+      "permission_id": 8
+    },
+    {
+      "role_id": 1,
+      "permission_id": 9
+    },
+    {
+      "role_id": 1,
+      "permission_id": 10
+    },
+    {
+      "role_id": 1,
+      "permission_id": 11
+    },
+    {
+      "role_id": 1,
+      "permission_id": 12
+    },
+    {
+      "role_id": 1,
+      "permission_id": 13
+    },
+    {
+      "role_id": 1,
+      "permission_id": 14
+    },
+    {
+      "role_id": 1,
+      "permission_id": 15
+    },
+    {
+      "role_id": 1,
+      "permission_id": 16
+    },
+    {
+      "role_id": 1,
+      "permission_id": 17
+    },
+    {
+      "role_id": 1,
+      "permission_id": 18
+    },
+    {
+      "role_id": 1,
+      "permission_id": 19
+    },
+    {
+      "role_id": 1,
+      "permission_id": 20
+    },
+    {
+      "role_id": 1,
+      "permission_id": 21
+    },
+    {
+      "role_id": 1,
+      "permission_id": 22
+    },
+    {
+      "role_id": 1,
+      "permission_id": 23
+    },
+    {
+      "role_id": 1,
+      "permission_id": 24
+    },
+    {
+      "role_id": 1,
+      "permission_id": 25
+    },
+    {
+      "role_id": 1,
+      "permission_id": 26
+    },
+    {
+      "role_id": 1,
+      "permission_id": 27
+    },
+    {
+      "role_id": 1,
+      "permission_id": 28
+    },
+    {
+      "role_id": 1,
+      "permission_id": 29
+    },
+    {
+      "role_id": 1,
+      "permission_id": 30
+    },
+    {
+      "role_id": 1,
+      "permission_id": 31
+    },
+    {
+      "role_id": 1,
+      "permission_id": 32
+    },
+    {
+      "role_id": 1,
+      "permission_id": 33
+    },
+    {
+      "role_id": 1,
+      "permission_id": 34
+    },
+    {
+      "role_id": 1,
+      "permission_id": 35
+    },
+    {
+      "role_id": 1,
+      "permission_id": 36
+    },
+    {
+      "role_id": 1,
+      "permission_id": 37
+    },
+    {
+      "role_id": 1,
+      "permission_id": 38
+    },
+    {
+      "role_id": 7,
+      "permission_id": 1
+    },
+    {
+      "role_id": 7,
+      "permission_id": 2
+    },
+    {
+      "role_id": 7,
+      "permission_id": 3
+    },
+    {
+      "role_id": 7,
+      "permission_id": 4
+    },
+    {
+      "role_id": 7,
+      "permission_id": 5
+    },
+    {
+      "role_id": 7,
+      "permission_id": 6
+    },
+    {
+      "role_id": 7,
+      "permission_id": 7
+    },
+    {
+      "role_id": 7,
+      "permission_id": 8
+    },
+    {
+      "role_id": 7,
+      "permission_id": 9
+    },
+    {
+      "role_id": 7,
+      "permission_id": 10
+    },
+    {
+      "role_id": 7,
+      "permission_id": 11
+    },
+    {
+      "role_id": 7,
+      "permission_id": 12
+    },
+    {
+      "role_id": 7,
+      "permission_id": 13
+    },
+    {
+      "role_id": 7,
+      "permission_id": 14
+    },
+    {
+      "role_id": 7,
+      "permission_id": 15
+    },
+    {
+      "role_id": 7,
+      "permission_id": 16
+    },
+    {
+      "role_id": 7,
+      "permission_id": 17
+    },
+    {
+      "role_id": 7,
+      "permission_id": 18
+    },
+    {
+      "role_id": 7,
+      "permission_id": 19
+    },
+    {
+      "role_id": 7,
+      "permission_id": 20
+    },
+    {
+      "role_id": 7,
+      "permission_id": 21
+    },
+    {
+      "role_id": 7,
+      "permission_id": 22
+    },
+    {
+      "role_id": 7,
+      "permission_id": 23
+    },
+    {
+      "role_id": 7,
+      "permission_id": 24
+    },
+    {
+      "role_id": 7,
+      "permission_id": 25
+    },
+    {
+      "role_id": 7,
+      "permission_id": 26
+    },
+    {
+      "role_id": 7,
+      "permission_id": 27
+    },
+    {
+      "role_id": 7,
+      "permission_id": 28
+    },
+    {
+      "role_id": 7,
+      "permission_id": 29
+    },
+    {
+      "role_id": 7,
+      "permission_id": 30
+    },
+    {
+      "role_id": 7,
+      "permission_id": 31
+    },
+    {
+      "role_id": 7,
+      "permission_id": 32
+    },
+    {
+      "role_id": 7,
+      "permission_id": 33
+    },
+    {
+      "role_id": 7,
+      "permission_id": 34
+    },
+    {
+      "role_id": 7,
+      "permission_id": 35
+    },
+    {
+      "role_id": 7,
+      "permission_id": 36
+    },
+    {
+      "role_id": 7,
+      "permission_id": 37
+    },
+    {
+      "role_id": 7,
+      "permission_id": 38
+    },
+    {
+      "role_id": 13,
+      "permission_id": 1
+    },
+    {
+      "role_id": 13,
+      "permission_id": 2
+    },
+    {
+      "role_id": 13,
+      "permission_id": 3
+    },
+    {
+      "role_id": 13,
+      "permission_id": 4
+    },
+    {
+      "role_id": 13,
+      "permission_id": 5
+    },
+    {
+      "role_id": 13,
+      "permission_id": 6
+    },
+    {
+      "role_id": 13,
+      "permission_id": 7
+    },
+    {
+      "role_id": 13,
+      "permission_id": 8
+    },
+    {
+      "role_id": 13,
+      "permission_id": 9
+    },
+    {
+      "role_id": 13,
+      "permission_id": 10
+    },
+    {
+      "role_id": 13,
+      "permission_id": 11
+    },
+    {
+      "role_id": 13,
+      "permission_id": 12
+    },
+    {
+      "role_id": 13,
+      "permission_id": 13
+    },
+    {
+      "role_id": 13,
+      "permission_id": 14
+    },
+    {
+      "role_id": 13,
+      "permission_id": 15
+    },
+    {
+      "role_id": 13,
+      "permission_id": 16
+    },
+    {
+      "role_id": 13,
+      "permission_id": 17
+    },
+    {
+      "role_id": 13,
+      "permission_id": 18
+    },
+    {
+      "role_id": 13,
+      "permission_id": 19
+    },
+    {
+      "role_id": 13,
+      "permission_id": 20
+    },
+    {
+      "role_id": 13,
+      "permission_id": 21
+    },
+    {
+      "role_id": 13,
+      "permission_id": 22
+    },
+    {
+      "role_id": 13,
+      "permission_id": 23
+    },
+    {
+      "role_id": 13,
+      "permission_id": 24
+    },
+    {
+      "role_id": 13,
+      "permission_id": 25
+    },
+    {
+      "role_id": 13,
+      "permission_id": 26
+    },
+    {
+      "role_id": 13,
+      "permission_id": 27
+    },
+    {
+      "role_id": 13,
+      "permission_id": 28
+    },
+    {
+      "role_id": 13,
+      "permission_id": 29
+    },
+    {
+      "role_id": 13,
+      "permission_id": 30
+    },
+    {
+      "role_id": 13,
+      "permission_id": 31
+    },
+    {
+      "role_id": 13,
+      "permission_id": 32
+    },
+    {
+      "role_id": 13,
+      "permission_id": 33
+    },
+    {
+      "role_id": 13,
+      "permission_id": 34
+    },
+    {
+      "role_id": 13,
+      "permission_id": 35
+    },
+    {
+      "role_id": 13,
+      "permission_id": 36
+    },
+    {
+      "role_id": 13,
+      "permission_id": 37
+    },
+    {
+      "role_id": 13,
+      "permission_id": 38
+    }
+  ],
+  "academic_departments": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "campus_id": 1,
+      "code": "GEN",
+      "name": "General Studies",
+      "category": "general",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "campus_id": 2,
+      "code": "SCI",
+      "name": "Science Faculty",
+      "category": "science",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "campus_id": 3,
+      "code": "HIFZ",
+      "name": "Hifz Department",
+      "category": "hifz",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "academic_terms": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "academic_session_id": 1,
+      "name": "Term 2",
+      "starts_on": "2026-11-05",
+      "ends_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "academic_session_id": 2,
+      "name": "Semester 1",
+      "starts_on": "2026-11-05",
+      "ends_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "academic_session_id": 3,
+      "name": "Hifz Session",
+      "starts_on": "2026-11-05",
+      "ends_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "academic_calendar_events": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "academic_session_id": 1,
+      "title": "Annual Science Fair",
+      "event_type": "activity",
+      "starts_at": "2026-11-05 09:00:00",
+      "ends_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "academic_session_id": 2,
+      "title": "Demo Academic Calendar Events",
+      "event_type": "Demo event type",
+      "starts_at": "2026-11-05 09:00:00",
+      "ends_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "academic_session_id": 3,
+      "title": "Demo Academic Calendar Events",
+      "event_type": "Demo event type",
+      "starts_at": "2026-11-05 09:00:00",
+      "ends_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "guardians": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "user_id": 4,
+      "name": "Md Karim Rahman",
+      "relation": "father",
+      "phone": "01700000001",
+      "email": "parent.school@example.test",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "user_id": null,
+      "name": "Mrs Farzana Ahmed",
+      "relation": "mother",
+      "phone": "01700000002",
+      "email": "Demo email",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "user_id": null,
+      "name": "Mr Abdul Hakim",
+      "relation": "father",
+      "phone": "01700000003",
+      "email": "Demo email",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "user_id": 5,
+      "campus_id": 1,
+      "admission_no": "SCH-2026-001",
+      "name": "Ayesha Rahman",
+      "gender": "female",
+      "birth_date": "2014-02-14",
+      "blood_group": "B+",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "user_id": null,
+      "campus_id": 2,
+      "admission_no": "COL-2026-001",
+      "name": "Rafi Ahmed",
+      "gender": "male",
+      "birth_date": "2009-06-16",
+      "blood_group": "A+",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "user_id": null,
+      "campus_id": 3,
+      "admission_no": "MAD-2026-001",
+      "name": "Yusuf Ali",
+      "gender": "male",
+      "birth_date": "2013-08-21",
+      "blood_group": "O+",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "admission_cycles": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "academic_session_id": 1,
+      "campus_id": 1,
+      "title": "2026 Grade 6 Admission",
+      "opens_on": "2026-11-05",
+      "closes_on": "2026-11-05",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "academic_session_id": 2,
+      "campus_id": 2,
+      "title": "2026 College Admission",
+      "opens_on": "2026-11-05",
+      "closes_on": "2026-11-05",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "academic_session_id": 3,
+      "campus_id": 3,
+      "title": "2026 Hifz Admission",
+      "opens_on": "2026-11-05",
+      "closes_on": "2026-11-05",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "user_id": 2,
+      "campus_id": 1,
+      "employee_no": "T-001",
+      "name": "Nabila Islam",
+      "designation": "Class Teacher",
+      "joined_on": "2026-11-05",
+      "basic_salary": "35000.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "user_id": null,
+      "campus_id": 2,
+      "employee_no": "CT-01",
+      "name": "Dr Farhana Khan",
+      "designation": "Lecturer",
+      "joined_on": "2026-11-05",
+      "basic_salary": "48000.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "user_id": 8,
+      "campus_id": 3,
+      "employee_no": "HZ-01",
+      "name": "Ustad Mahmud",
+      "designation": "Hifz Instructor",
+      "joined_on": "2026-11-05",
+      "basic_salary": "30000.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "payroll_runs": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "period_start": "2026-11-05",
+      "period_end": "2026-11-05",
+      "status": "draft",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "period_start": "2026-11-05",
+      "period_end": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "period_start": "2026-11-05",
+      "period_end": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "grading_scales": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "code": "NCTB",
+      "name": "School GPA 5",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "code": "COL",
+      "name": "College GPA 5",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "code": "HIFZ",
+      "name": "Madrasha Grading",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "chart_of_accounts": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "code": "1100",
+      "name": "Student Receivables",
+      "account_type": "asset",
+      "parent_account_id": null,
+      "is_active": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "code": "1100",
+      "name": "Student Receivables",
+      "account_type": "asset",
+      "parent_account_id": null,
+      "is_active": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "code": "1100",
+      "name": "Student Receivables",
+      "account_type": "asset",
+      "parent_account_id": null,
+      "is_active": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 4,
+      "institution_id": 1,
+      "code": "1000",
+      "name": "Cash / Bank",
+      "account_type": "asset",
+      "parent_account_id": null,
+      "is_active": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 5,
+      "institution_id": 1,
+      "code": "4100",
+      "name": "Tuition Revenue",
+      "account_type": "income",
+      "parent_account_id": null,
+      "is_active": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 6,
+      "institution_id": 2,
+      "code": "1000",
+      "name": "Cash / Bank",
+      "account_type": "asset",
+      "parent_account_id": null,
+      "is_active": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 7,
+      "institution_id": 2,
+      "code": "4100",
+      "name": "Tuition Revenue",
+      "account_type": "income",
+      "parent_account_id": null,
+      "is_active": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 8,
+      "institution_id": 3,
+      "code": "1000",
+      "name": "Cash / Bank",
+      "account_type": "asset",
+      "parent_account_id": null,
+      "is_active": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 9,
+      "institution_id": 3,
+      "code": "4100",
+      "name": "Tuition Revenue",
+      "account_type": "income",
+      "parent_account_id": null,
+      "is_active": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "payment_methods": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "code": "CASH",
+      "name": "Cash",
+      "method_type": "cash",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "code": "BANK",
+      "name": "Bank Deposit",
+      "method_type": "bank",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "code": "CASH",
+      "name": "Cash",
+      "method_type": "cash",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "ledger_journals": [
+    {
+      "id": 4,
+      "institution_id": 1,
+      "journal_no": "J-1-INV",
+      "posted_on": "2026-11-05",
+      "source_type": "invoice",
+      "source_reference": "INV-S-2026-001",
+      "description": "Tuition billing (demo)",
+      "status": "posted",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 5,
+      "institution_id": 1,
+      "journal_no": "J-1-PAY",
+      "posted_on": "2026-11-05",
+      "source_type": "payment",
+      "source_reference": "CASH-S-001",
+      "description": "Partial collection (demo)",
+      "status": "posted",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 6,
+      "institution_id": 2,
+      "journal_no": "J-2-INV",
+      "posted_on": "2026-11-05",
+      "source_type": "invoice",
+      "source_reference": "INV-C-2026-001",
+      "description": "Tuition billing (demo)",
+      "status": "posted",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 7,
+      "institution_id": 2,
+      "journal_no": "J-2-PAY",
+      "posted_on": "2026-11-05",
+      "source_type": "payment",
+      "source_reference": "BANK-C-001",
+      "description": "Partial collection (demo)",
+      "status": "posted",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 8,
+      "institution_id": 3,
+      "journal_no": "J-3-INV",
+      "posted_on": "2026-11-05",
+      "source_type": "invoice",
+      "source_reference": "INV-M-2026-001",
+      "description": "Tuition billing (demo)",
+      "status": "posted",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 9,
+      "institution_id": 3,
+      "journal_no": "J-3-PAY",
+      "posted_on": "2026-11-05",
+      "source_type": "payment",
+      "source_reference": "CASH-M-001",
+      "description": "Partial collection (demo)",
+      "status": "posted",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "financial_period_closings": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "academic_session_id": 1,
+      "closed_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "academic_session_id": 2,
+      "closed_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "academic_session_id": 3,
+      "closed_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "scholarships": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "name": "Merit Support",
+      "criteria": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "name": "College Merit Award",
+      "criteria": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "name": "Hifz Student Support",
+      "criteria": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "notices": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "title": "School Annual Event",
+      "body": "Demo announcement for parents",
+      "audience": "all",
+      "published_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "title": "College Orientation",
+      "body": "Fictional demonstration record",
+      "audience": "Demo audience",
+      "published_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "title": "Hifz Parent Meeting",
+      "body": "Fictional demonstration record",
+      "audience": "Demo audience",
+      "published_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "direct_messages": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "sender_user_id": 2,
+      "recipient_user_id": 4,
+      "body": "Sample teacher-parent message",
+      "read_at": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "sender_user_id": 6,
+      "recipient_user_id": 6,
+      "body": "Demo staff message",
+      "read_at": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "sender_user_id": 8,
+      "recipient_user_id": 7,
+      "body": "Demo Hifz progress update",
+      "read_at": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "notification_templates": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "code": "ABSENCE",
+      "channel": "sms",
+      "body": "Attendance update: {student_name}",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "code": "RESULT",
+      "channel": "email",
+      "body": "Fictional demonstration record",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "code": "HIFZ",
+      "channel": "sms",
+      "body": "Fictional demonstration record",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "library_books": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "isbn": "9780000000001",
+      "title": "Mathematics Grade Six",
+      "author": "Demo Board",
+      "category": "textbook",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "isbn": "9780000000002",
+      "title": "Introduction to Physics",
+      "author": "Demo Publisher",
+      "category": "general",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "isbn": "9780000000003",
+      "title": "Tajweed Guide",
+      "author": "Demo Author",
+      "category": "religious",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "vehicles": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "vehicle_code": "BUS-01",
+      "plate_number": "DEMO-DHA-001",
+      "seats": 28,
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "vehicle_code": "BUS-02",
+      "plate_number": "DEMO-DHA-002",
+      "seats": 25,
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "vehicle_code": "VAN-01",
+      "plate_number": "DEMO-DHA-003",
+      "seats": 12,
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "hostels": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "campus_id": 1,
+      "name": "Demo Boys Hostel",
+      "category": "boarding",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "campus_id": 2,
+      "name": "College Hostel",
+      "category": "general",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "campus_id": 3,
+      "name": "Hifz Boarding House",
+      "category": "general",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "suppliers": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "name": "Demo Suppliers",
+      "phone": "Demo phone",
+      "address": "Fictional demonstration record",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "name": "Demo Suppliers",
+      "phone": "Demo phone",
+      "address": "Fictional demonstration record",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "name": "Demo Suppliers",
+      "phone": "Demo phone",
+      "address": "Fictional demonstration record",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "inventory_items": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "sku": "NOTEBOOK-A5",
+      "name": "A5 Notebook",
+      "unit": "piece",
+      "reorder_level": 20,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "sku": "CHEM-KIT",
+      "name": "Chemistry Lab Kit",
+      "unit": "kit",
+      "reorder_level": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "sku": "QUR-STAND",
+      "name": "Quran Stand",
+      "unit": "piece",
+      "reorder_level": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "fixed_assets": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "asset_tag": "S-CHAIR-001",
+      "name": "Teacher Chair",
+      "category": "furniture",
+      "purchased_on": "2026-11-05",
+      "purchase_cost": "4500.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "asset_tag": "C-MIC-001",
+      "name": "Microscope",
+      "category": "lab",
+      "purchased_on": "2026-11-05",
+      "purchase_cost": "9000.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "asset_tag": "M-DESK-001",
+      "name": "Reading Desk",
+      "category": "furniture",
+      "purchased_on": "2026-11-05",
+      "purchase_cost": "3000.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "donors": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "name": "Demo Education Supporter",
+      "phone": "Demo phone",
+      "email": "Demo email",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "name": "Demo College Supporter",
+      "phone": "Demo phone",
+      "email": "Demo email",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "name": "Demo Madrasha Donor",
+      "phone": "Demo phone",
+      "email": "Demo email",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "donation_funds": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "code": "GEN",
+      "name": "General School Fund",
+      "is_restricted": 0,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "code": "GEN",
+      "name": "College Development",
+      "is_restricted": 0,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "code": "ZAKAT",
+      "name": "Zakat Assistance Fund",
+      "is_restricted": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "certificate_templates": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "code": "TC",
+      "name": "Transfer Certificate",
+      "template_html": "<h1>Sample Transfer Certificate</h1>",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "code": "TRANSCRIPT",
+      "name": "Academic Transcript",
+      "template_html": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "code": "HIFZ",
+      "name": "Hifz Completion Certificate",
+      "template_html": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "visitor_logs": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "campus_id": 1,
+      "visitor_name": "Demo Visitor",
+      "purpose": "Parent meeting",
+      "checked_in_at": "2026-11-05 09:00:00",
+      "checked_out_at": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "campus_id": 2,
+      "visitor_name": "Demo visitor name",
+      "purpose": "Demo purpose",
+      "checked_in_at": "2026-11-05 09:00:00",
+      "checked_out_at": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "campus_id": 3,
+      "visitor_name": "Demo visitor name",
+      "purpose": "Demo purpose",
+      "checked_in_at": "2026-11-05 09:00:00",
+      "checked_out_at": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "campus_events": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "campus_id": 1,
+      "title": "Demo Campus Events",
+      "starts_at": "2026-11-05 09:00:00",
+      "ends_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "campus_id": 2,
+      "title": "Demo Campus Events",
+      "starts_at": "2026-11-05 09:00:00",
+      "ends_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "campus_id": 3,
+      "title": "Demo Campus Events",
+      "starts_at": "2026-11-05 09:00:00",
+      "ends_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "room_bookings": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "campus_id": 1,
+      "booked_by_user_id": null,
+      "room_name": "Demo room name",
+      "starts_at": "2026-11-05 09:00:00",
+      "ends_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "campus_id": 2,
+      "booked_by_user_id": null,
+      "room_name": "Demo room name",
+      "starts_at": "2026-11-05 09:00:00",
+      "ends_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "campus_id": 3,
+      "booked_by_user_id": null,
+      "room_name": "Demo room name",
+      "starts_at": "2026-11-05 09:00:00",
+      "ends_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "integration_connections": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "provider": "Demo SMS Sandbox",
+      "category": "sms",
+      "status": "disabled",
+      "configuration": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "provider": "Demo Payment Sandbox",
+      "category": "payment",
+      "status": "disabled",
+      "configuration": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "provider": "Demo Attendance Device",
+      "category": "attendance",
+      "status": "disabled",
+      "configuration": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "report_exports": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "user_id": 1,
+      "report_key": "attendance_summary",
+      "requested_at": "2026-11-05 09:00:00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "user_id": 6,
+      "report_key": "fee_summary",
+      "requested_at": "2026-11-05 09:00:00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "user_id": 7,
+      "report_key": "hifz_summary",
+      "requested_at": "2026-11-05 09:00:00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "academic_programs": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "department_id": 1,
+      "code": "SEC",
+      "name": "Secondary Education",
+      "level": "school",
+      "required_credits": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "department_id": 2,
+      "code": "HSC",
+      "name": "Higher Secondary Certificate",
+      "level": "college",
+      "required_credits": "120.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "department_id": 3,
+      "code": "QUR",
+      "name": "Quran Memorization",
+      "level": "hifz",
+      "required_credits": null,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "subjects": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "department_id": 1,
+      "code": "MATH",
+      "name": "Mathematics",
+      "credit_hours": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "department_id": 2,
+      "code": "PHY",
+      "name": "Physics",
+      "credit_hours": "4.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "department_id": 3,
+      "code": "QURAN",
+      "name": "Quran Memorization",
+      "credit_hours": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "student_guardians": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "guardian_id": 1,
+      "relationship": "parent",
+      "is_primary": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "guardian_id": 2,
+      "relationship": "parent",
+      "is_primary": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "guardian_id": 3,
+      "relationship": "parent",
+      "is_primary": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "student_documents": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "document_type": "birth_certificate",
+      "file_path": null,
+      "verification_status": "pending_upload",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "document_type": "Demo document type",
+      "file_path": null,
+      "verification_status": "Demo verification status",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "document_type": "Demo document type",
+      "file_path": null,
+      "verification_status": "Demo verification status",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "student_transfers": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "from_campus_id": 1,
+      "to_campus_id": 1,
+      "transferred_on": "2026-11-05",
+      "reason": "Demonstration only",
+      "status": "requested",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "from_campus_id": 2,
+      "to_campus_id": 2,
+      "transferred_on": "2026-11-05",
+      "reason": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "from_campus_id": 3,
+      "to_campus_id": 3,
+      "transferred_on": "2026-11-05",
+      "reason": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "student_health_records": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "allergies": "None reported in demo data",
+      "medical_notes": "Fictional test record",
+      "emergency_contact": "01700000001",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "allergies": "Fictional demonstration record",
+      "medical_notes": null,
+      "emergency_contact": "Demo emergency contact",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "allergies": "Fictional demonstration record",
+      "medical_notes": null,
+      "emergency_contact": "Demo emergency contact",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "student_incidents": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "occurred_on": "2026-11-05",
+      "category": "attendance_followup",
+      "details": "Illustrative follow-up only",
+      "status": "resolved",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "occurred_on": "2026-11-05",
+      "category": "general",
+      "details": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "occurred_on": "2026-11-05",
+      "category": "general",
+      "details": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "student_leave_requests": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "starts_on": "2026-11-05",
+      "ends_on": "2026-11-05",
+      "reason": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "starts_on": "2026-11-05",
+      "ends_on": "2026-11-05",
+      "reason": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "starts_on": "2026-11-05",
+      "ends_on": "2026-11-05",
+      "reason": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "staff_attendance": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "employee_id": 1,
+      "attendance_on": "2026-11-05",
+      "status": "active",
+      "check_in_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "employee_id": 2,
+      "attendance_on": "2026-11-05",
+      "status": "active",
+      "check_in_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "employee_id": 3,
+      "attendance_on": "2026-11-05",
+      "status": "active",
+      "check_in_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "staff_leave_requests": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "employee_id": 1,
+      "starts_on": "2026-11-05",
+      "ends_on": "2026-11-05",
+      "reason": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "employee_id": 2,
+      "starts_on": "2026-11-05",
+      "ends_on": "2026-11-05",
+      "reason": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "employee_id": 3,
+      "starts_on": "2026-11-05",
+      "ends_on": "2026-11-05",
+      "reason": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "payslips": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "payroll_run_id": 1,
+      "employee_id": 1,
+      "gross_amount": "35000.00",
+      "deduction_amount": "1000.00",
+      "net_amount": "34000.00",
+      "status": "draft",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "payroll_run_id": 2,
+      "employee_id": 2,
+      "gross_amount": "48000.00",
+      "deduction_amount": "0.00",
+      "net_amount": "48000.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "payroll_run_id": 3,
+      "employee_id": 3,
+      "gross_amount": "30000.00",
+      "deduction_amount": "0.00",
+      "net_amount": "30000.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "staff_appraisals": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "employee_id": 1,
+      "reviewed_on": "2026-11-05",
+      "score": "91.00",
+      "remarks": "Demonstration appraisal",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "employee_id": 2,
+      "reviewed_on": "2026-11-05",
+      "score": "0.00",
+      "remarks": "Fictional demonstration record",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "employee_id": 3,
+      "reviewed_on": "2026-11-05",
+      "score": "0.00",
+      "remarks": "Fictional demonstration record",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "grading_bands": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "grading_scale_id": 1,
+      "min_percent": "80.00",
+      "max_percent": "100.00",
+      "letter_grade": "A+",
+      "grade_point": "5.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "grading_scale_id": 2,
+      "min_percent": "80.00",
+      "max_percent": "100.00",
+      "letter_grade": "A+",
+      "grade_point": "5.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "grading_scale_id": 3,
+      "min_percent": "80.00",
+      "max_percent": "100.00",
+      "letter_grade": "A+",
+      "grade_point": "5.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "fee_heads": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "code": "TUITION",
+      "name": "Monthly Tuition",
+      "revenue_account_id": 5,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "code": "TUITION",
+      "name": "College Tuition",
+      "revenue_account_id": 7,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "code": "HIFZ",
+      "name": "Hifz Tuition",
+      "revenue_account_id": 9,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "student_invoices": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "invoice_no": "INV-S-2026-001",
+      "issued_on": "2026-11-05",
+      "due_on": "2026-11-05",
+      "total_amount": "2500.00",
+      "paid_amount": "1000.00",
+      "status": "partial",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "invoice_no": "INV-C-2026-001",
+      "issued_on": "2026-11-05",
+      "due_on": "2026-11-05",
+      "total_amount": "3800.00",
+      "paid_amount": "800.00",
+      "status": "partial",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "invoice_no": "INV-M-2026-001",
+      "issued_on": "2026-11-05",
+      "due_on": "2026-11-05",
+      "total_amount": "1800.00",
+      "paid_amount": "500.00",
+      "status": "partial",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "ledger_lines": [
+    {
+      "id": 4,
+      "institution_id": 1,
+      "ledger_journal_id": 4,
+      "account_id": 1,
+      "debit": "2500.00",
+      "credit": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 5,
+      "institution_id": 1,
+      "ledger_journal_id": 4,
+      "account_id": 5,
+      "debit": "0.00",
+      "credit": "2500.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 6,
+      "institution_id": 1,
+      "ledger_journal_id": 5,
+      "account_id": 4,
+      "debit": "1000.00",
+      "credit": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 7,
+      "institution_id": 1,
+      "ledger_journal_id": 5,
+      "account_id": 1,
+      "debit": "0.00",
+      "credit": "1000.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 8,
+      "institution_id": 2,
+      "ledger_journal_id": 6,
+      "account_id": 2,
+      "debit": "3800.00",
+      "credit": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 9,
+      "institution_id": 2,
+      "ledger_journal_id": 6,
+      "account_id": 7,
+      "debit": "0.00",
+      "credit": "3800.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 10,
+      "institution_id": 2,
+      "ledger_journal_id": 7,
+      "account_id": 6,
+      "debit": "800.00",
+      "credit": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 11,
+      "institution_id": 2,
+      "ledger_journal_id": 7,
+      "account_id": 2,
+      "debit": "0.00",
+      "credit": "800.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 12,
+      "institution_id": 3,
+      "ledger_journal_id": 8,
+      "account_id": 3,
+      "debit": "1800.00",
+      "credit": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 13,
+      "institution_id": 3,
+      "ledger_journal_id": 8,
+      "account_id": 9,
+      "debit": "0.00",
+      "credit": "1800.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 14,
+      "institution_id": 3,
+      "ledger_journal_id": 9,
+      "account_id": 8,
+      "debit": "500.00",
+      "credit": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 15,
+      "institution_id": 3,
+      "ledger_journal_id": 9,
+      "account_id": 3,
+      "debit": "0.00",
+      "credit": "500.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "bank_accounts": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "account_id": 4,
+      "bank_name": "Demo Bank",
+      "account_mask": "****1001",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "account_id": 6,
+      "bank_name": "Demo Bank",
+      "account_mask": "****2001",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "account_id": 8,
+      "bank_name": "Demo Bank",
+      "account_mask": "****3001",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "expenses": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "expense_no": "EXP-S-001",
+      "description": "Classroom stationery",
+      "expense_on": "2026-11-05",
+      "amount": "350.00",
+      "account_id": 1,
+      "status": "draft",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "expense_no": "Demo expense no",
+      "description": "Demo description",
+      "expense_on": "2026-11-05",
+      "amount": "0.00",
+      "account_id": 2,
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "expense_no": "Demo expense no",
+      "description": "Demo description",
+      "expense_on": "2026-11-05",
+      "amount": "0.00",
+      "account_id": 3,
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "scholarship_awards": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "scholarship_id": 1,
+      "student_id": 1,
+      "amount": "500.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "scholarship_id": 2,
+      "student_id": 2,
+      "amount": "0.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "scholarship_id": 3,
+      "student_id": 3,
+      "amount": "0.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "notification_deliveries": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "notification_template_id": 1,
+      "student_id": 1,
+      "recipient": "01700000001",
+      "channel": "sms",
+      "status": "queued",
+      "sent_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "notification_template_id": 2,
+      "student_id": 2,
+      "recipient": "Demo recipient",
+      "channel": "Demo channel",
+      "status": "active",
+      "sent_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "notification_template_id": 3,
+      "student_id": 3,
+      "recipient": "Demo recipient",
+      "channel": "Demo channel",
+      "status": "active",
+      "sent_at": "2026-11-05 09:00:00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "parent_meetings": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "employee_id": 1,
+      "scheduled_at": "2026-11-05 09:00:00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "employee_id": 2,
+      "scheduled_at": "2026-11-05 09:00:00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "employee_id": 3,
+      "scheduled_at": "2026-11-05 09:00:00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "library_copies": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "library_book_id": 1,
+      "barcode": "SCH-LIB-0001",
+      "status": "issued",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "library_book_id": 2,
+      "barcode": "COL-LIB-0001",
+      "status": "issued",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "library_book_id": 3,
+      "barcode": "MAD-LIB-0001",
+      "status": "issued",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "transport_routes": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "vehicle_id": 1,
+      "employee_id": 1,
+      "route_name": "Demo route name",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "vehicle_id": 2,
+      "employee_id": 2,
+      "route_name": "Demo route name",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "vehicle_id": 3,
+      "employee_id": 3,
+      "route_name": "Demo route name",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "hostel_rooms": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "hostel_id": 1,
+      "room_code": "Demo room code",
+      "capacity": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "hostel_id": 2,
+      "room_code": "Demo room code",
+      "capacity": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "hostel_id": 3,
+      "room_code": "Demo room code",
+      "capacity": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "meal_plans": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "hostel_id": 1,
+      "name": "Demo Meal Plans",
+      "monthly_rate": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "hostel_id": 2,
+      "name": "Demo Meal Plans",
+      "monthly_rate": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "hostel_id": 3,
+      "name": "Demo Meal Plans",
+      "monthly_rate": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "stock_movements": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "inventory_item_id": 1,
+      "quantity": 50,
+      "movement_type": "receive",
+      "reference_no": "GRN-001",
+      "moved_on": "2026-11-05",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "inventory_item_id": 2,
+      "quantity": 5,
+      "movement_type": "receive",
+      "reference_no": "GRN-002",
+      "moved_on": "2026-11-05",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "inventory_item_id": 3,
+      "quantity": 15,
+      "movement_type": "receive",
+      "reference_no": "GRN-003",
+      "moved_on": "2026-11-05",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "purchase_orders": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "supplier_id": 1,
+      "po_number": "PO-S-001",
+      "ordered_on": "2026-11-05",
+      "total_amount": "1250.00",
+      "status": "draft",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "supplier_id": 2,
+      "po_number": "PO-C-001",
+      "ordered_on": "2026-11-05",
+      "total_amount": "3000.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "supplier_id": 3,
+      "po_number": "PO-M-001",
+      "ordered_on": "2026-11-05",
+      "total_amount": "1800.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "asset_assignments": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "fixed_asset_id": 1,
+      "employee_id": 1,
+      "assigned_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "fixed_asset_id": 2,
+      "employee_id": 2,
+      "assigned_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "fixed_asset_id": 3,
+      "employee_id": 3,
+      "assigned_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "donations": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "donor_id": 1,
+      "donation_fund_id": 1,
+      "receipt_no": "DON-S-001",
+      "amount": "3000.00",
+      "received_on": "2026-11-05",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "donor_id": 2,
+      "donation_fund_id": 2,
+      "receipt_no": "DON-C-001",
+      "amount": "5000.00",
+      "received_on": "2026-11-05",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "donor_id": 3,
+      "donation_fund_id": 3,
+      "receipt_no": "DON-M-001",
+      "amount": "2500.00",
+      "received_on": "2026-11-05",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "fund_expenses": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "donation_fund_id": 1,
+      "approved_by_user_id": null,
+      "description": "Sample book support",
+      "amount": "500.00",
+      "spent_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "donation_fund_id": 2,
+      "approved_by_user_id": null,
+      "description": "Sample campus activity",
+      "amount": "600.00",
+      "spent_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "donation_fund_id": 3,
+      "approved_by_user_id": null,
+      "description": "Eligible student support (demo)",
+      "amount": "400.00",
+      "spent_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "welfare_cases": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "category": "general",
+      "details": "Fictional demonstration record",
+      "opened_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "category": "general",
+      "details": "Fictional demonstration record",
+      "opened_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "category": "general",
+      "details": "Fictional demonstration record",
+      "opened_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "issued_certificates": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "certificate_template_id": 1,
+      "certificate_no": "CERT-S-001",
+      "issued_on": "2026-11-05",
+      "verification_token": "demo-sch-token-0001",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "certificate_template_id": 2,
+      "certificate_no": "CERT-C-001",
+      "issued_on": "2026-11-05",
+      "verification_token": "demo-col-token-0001",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "certificate_template_id": 3,
+      "certificate_no": "CERT-M-001",
+      "issued_on": "2026-11-05",
+      "verification_token": "demo-mad-token-0001",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "integration_logs": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "integration_connection_id": 1,
+      "event_name": "connection_check",
+      "status": "not_configured",
+      "logged_at": "2026-11-05 09:00:00",
+      "external_reference": "Demo external reference",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "integration_connection_id": 2,
+      "event_name": "connection_check",
+      "status": "not_configured",
+      "logged_at": "2026-11-05 09:00:00",
+      "external_reference": "Demo external reference",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "integration_connection_id": 3,
+      "event_name": "connection_check",
+      "status": "not_configured",
+      "logged_at": "2026-11-05 09:00:00",
+      "external_reference": "Demo external reference",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "alumni_profiles": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "graduation_year": 2025,
+      "notes": "Illustrative alumni profile; use historical student enrollment in production",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "graduation_year": 1,
+      "notes": "Fictional demonstration record",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "graduation_year": 1,
+      "notes": "Fictional demonstration record",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "class_levels": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "program_id": 1,
+      "code": "G6",
+      "name": "Grade 6",
+      "sequence": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "program_id": 2,
+      "code": "XI",
+      "name": "Class XI",
+      "sequence": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "program_id": 3,
+      "code": "HIFZ-1",
+      "name": "Hifz Level 1",
+      "sequence": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "payslip_items": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "payslip_id": 1,
+      "item_type": "earning",
+      "description": "Basic salary",
+      "amount": "35000.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "payslip_id": 2,
+      "item_type": "earning",
+      "description": "Basic salary",
+      "amount": "48000.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "payslip_id": 3,
+      "item_type": "earning",
+      "description": "Basic salary",
+      "amount": "30000.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "student_invoice_lines": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_invoice_id": 1,
+      "fee_head_id": 1,
+      "description": "November Tuition",
+      "amount": "2500.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_invoice_id": 2,
+      "fee_head_id": 2,
+      "description": "November College Tuition",
+      "amount": "3800.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_invoice_id": 3,
+      "fee_head_id": 3,
+      "description": "November Hifz Tuition",
+      "amount": "1800.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "student_payments": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "student_invoice_id": 1,
+      "payment_method_id": 1,
+      "amount": "1000.00",
+      "paid_on": "2026-11-05",
+      "reference_no": "CASH-S-001",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "student_invoice_id": 2,
+      "payment_method_id": 2,
+      "amount": "800.00",
+      "paid_on": "2026-11-05",
+      "reference_no": "BANK-C-001",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "student_invoice_id": 3,
+      "payment_method_id": 3,
+      "amount": "500.00",
+      "paid_on": "2026-11-05",
+      "reference_no": "CASH-M-001",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "bank_reconciliations": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "bank_account_id": 1,
+      "statement_on": "2026-11-05",
+      "statement_balance": "0.00",
+      "ledger_balance": "0.00",
+      "status": "pending",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "bank_account_id": 2,
+      "statement_on": "2026-11-05",
+      "statement_balance": "0.00",
+      "ledger_balance": "0.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "bank_account_id": 3,
+      "statement_on": "2026-11-05",
+      "statement_balance": "0.00",
+      "ledger_balance": "0.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "library_loans": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "library_copy_id": 1,
+      "student_id": 1,
+      "issued_on": "2026-11-05",
+      "due_on": "2026-11-05",
+      "returned_on": null,
+      "fine_amount": "0.00",
+      "status": "issued",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "library_copy_id": 2,
+      "student_id": 2,
+      "issued_on": "2026-11-05",
+      "due_on": "2026-11-05",
+      "returned_on": null,
+      "fine_amount": "0.00",
+      "status": "issued",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "library_copy_id": 3,
+      "student_id": 3,
+      "issued_on": "2026-11-05",
+      "due_on": "2026-11-05",
+      "returned_on": null,
+      "fine_amount": "0.00",
+      "status": "issued",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "transport_stops": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "transport_route_id": 1,
+      "name": "Demo Transport Stops",
+      "stop_order": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "transport_route_id": 2,
+      "name": "Demo Transport Stops",
+      "stop_order": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "transport_route_id": 3,
+      "name": "Demo Transport Stops",
+      "stop_order": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "hostel_beds": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "hostel_room_id": 1,
+      "bed_code": "Demo bed code",
+      "status": "occupied",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "hostel_room_id": 2,
+      "bed_code": "Demo bed code",
+      "status": "occupied",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "hostel_room_id": 3,
+      "bed_code": "Demo bed code",
+      "status": "occupied",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "purchase_order_lines": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "purchase_order_id": 1,
+      "inventory_item_id": 1,
+      "quantity": 50,
+      "unit_price": "25.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "purchase_order_id": 2,
+      "inventory_item_id": 2,
+      "quantity": 5,
+      "unit_price": "600.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "purchase_order_id": 3,
+      "inventory_item_id": 3,
+      "quantity": 15,
+      "unit_price": "120.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "class_sections": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "campus_id": 1,
+      "class_level_id": 1,
+      "code": "A",
+      "name": "Section A",
+      "shift": "morning",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "campus_id": 2,
+      "class_level_id": 2,
+      "code": "SCI-A",
+      "name": "Science A",
+      "shift": "day",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "campus_id": 3,
+      "class_level_id": 3,
+      "code": "B-1",
+      "name": "Boarding 1",
+      "shift": "day",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "class_subjects": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "class_level_id": 1,
+      "subject_id": 1,
+      "academic_session_id": 1,
+      "is_compulsory": 0,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "class_level_id": 2,
+      "subject_id": 2,
+      "academic_session_id": 2,
+      "is_compulsory": 0,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "class_level_id": 3,
+      "subject_id": 3,
+      "academic_session_id": 3,
+      "is_compulsory": 0,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "admission_applications": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "admission_cycle_id": 1,
+      "class_level_id": 1,
+      "application_no": "APP-S-001",
+      "applicant_name": "Ayesha Rahman",
+      "guardian_phone": "01700000001",
+      "score": "87.50",
+      "status": "approved",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "admission_cycle_id": 2,
+      "class_level_id": 2,
+      "application_no": "APP-C-001",
+      "applicant_name": "Rafi Ahmed",
+      "guardian_phone": "01700000002",
+      "score": "91.00",
+      "status": "approved",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "admission_cycle_id": 3,
+      "class_level_id": 3,
+      "application_no": "APP-M-001",
+      "applicant_name": "Yusuf Ali",
+      "guardian_phone": "01700000003",
+      "score": "78.00",
+      "status": "approved",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "examinations": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "academic_session_id": 1,
+      "class_level_id": 1,
+      "name": "Annual Examination 2026",
+      "exam_type": "annual",
+      "starts_on": "2026-11-05",
+      "ends_on": "2026-11-05",
+      "status": "published",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "academic_session_id": 2,
+      "class_level_id": 2,
+      "name": "Midterm 2026",
+      "exam_type": "midterm",
+      "starts_on": "2026-11-05",
+      "ends_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "academic_session_id": 3,
+      "class_level_id": 3,
+      "name": "Hifz Assessment 2026",
+      "exam_type": "oral",
+      "starts_on": "2026-11-05",
+      "ends_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "fee_plans": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "class_level_id": 1,
+      "academic_session_id": 1,
+      "name": "Grade 6 Monthly Fee",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "class_level_id": 2,
+      "academic_session_id": 2,
+      "name": "Class XI Tuition",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "class_level_id": 3,
+      "academic_session_id": 3,
+      "name": "Hifz Monthly Fee",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "payment_allocations": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_payment_id": 1,
+      "student_invoice_id": 1,
+      "amount": "1000.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_payment_id": 2,
+      "student_invoice_id": 2,
+      "amount": "800.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_payment_id": 3,
+      "student_invoice_id": 3,
+      "amount": "500.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "payment_refunds": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_payment_id": 1,
+      "amount": "100.00",
+      "reason": "Demonstration refund request, not posted",
+      "status": "requested",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_payment_id": 2,
+      "amount": "100.00",
+      "reason": "Demo only",
+      "status": "requested",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_payment_id": 3,
+      "amount": "100.00",
+      "reason": "Demo only",
+      "status": "requested",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "student_transport_assignments": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "transport_route_id": 1,
+      "transport_stop_id": 1,
+      "starts_on": "2026-11-05",
+      "monthly_fee": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "transport_route_id": 2,
+      "transport_stop_id": 2,
+      "starts_on": "2026-11-05",
+      "monthly_fee": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "transport_route_id": 3,
+      "transport_stop_id": 3,
+      "starts_on": "2026-11-05",
+      "monthly_fee": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "hostel_allocations": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "hostel_bed_id": 1,
+      "check_in_on": "2026-11-05",
+      "monthly_fee": "0.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "hostel_bed_id": 2,
+      "check_in_on": "2026-11-05",
+      "monthly_fee": "0.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "hostel_bed_id": 3,
+      "check_in_on": "2026-11-05",
+      "monthly_fee": "0.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "course_offerings": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "academic_term_id": 1,
+      "class_section_id": 1,
+      "subject_id": 1,
+      "capacity": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "academic_term_id": 2,
+      "class_section_id": 2,
+      "subject_id": 2,
+      "capacity": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "academic_term_id": 3,
+      "class_section_id": 3,
+      "subject_id": 3,
+      "capacity": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "class_routines": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "class_section_id": 1,
+      "class_subject_id": 1,
+      "day_of_week": "Sunday",
+      "starts_at": "09:00:00",
+      "ends_at": "09:45:00",
+      "room": "Room 101",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "class_section_id": 2,
+      "class_subject_id": 2,
+      "day_of_week": "Demo day of ",
+      "starts_at": "09:00:00",
+      "ends_at": "09:00:00",
+      "room": "Demo room",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "class_section_id": 3,
+      "class_subject_id": 3,
+      "day_of_week": "Demo day of ",
+      "starts_at": "09:00:00",
+      "ends_at": "09:00:00",
+      "room": "Demo room",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "lesson_plans": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "class_subject_id": 1,
+      "lesson_date": "2026-11-05",
+      "topic": "Fractions",
+      "completion_percent": "60.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "class_subject_id": 2,
+      "lesson_date": "2026-11-05",
+      "topic": "Demo topic",
+      "completion_percent": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "class_subject_id": 3,
+      "lesson_date": "2026-11-05",
+      "topic": "Surah Al-Baqarah Revision",
+      "completion_percent": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "assignments": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "class_subject_id": 1,
+      "title": "Fractions Worksheet",
+      "details": "Fictional demonstration record",
+      "due_at": "2026-11-05 09:00:00",
+      "max_marks": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "class_subject_id": 2,
+      "title": "Physics Lab Preparation",
+      "details": "Fictional demonstration record",
+      "due_at": "2026-11-05 09:00:00",
+      "max_marks": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "class_subject_id": 3,
+      "title": "Surah Recitation Practice",
+      "details": "Fictional demonstration record",
+      "due_at": "2026-11-05 09:00:00",
+      "max_marks": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "academic_session_id": 1,
+      "class_section_id": 1,
+      "roll_no": "06",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "academic_session_id": 2,
+      "class_section_id": 2,
+      "roll_no": "12",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "academic_session_id": 3,
+      "class_section_id": 3,
+      "roll_no": "03",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "admission_offers": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "admission_application_id": 1,
+      "student_id": 1,
+      "offered_on": "2026-11-05",
+      "status": "accepted",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "admission_application_id": 2,
+      "student_id": 2,
+      "offered_on": "2026-11-05",
+      "status": "accepted",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "admission_application_id": 3,
+      "student_id": 3,
+      "offered_on": "2026-11-05",
+      "status": "accepted",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "attendance_sessions": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "class_section_id": 1,
+      "attendance_on": "2026-11-05",
+      "period_code": "Demo period code",
+      "status": "closed",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "class_section_id": 2,
+      "attendance_on": "2026-11-05",
+      "period_code": "Demo period code",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "class_section_id": 3,
+      "attendance_on": "2026-11-05",
+      "period_code": "Demo period code",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "teacher_assignments": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "employee_id": 1,
+      "class_subject_id": 1,
+      "academic_session_id": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "employee_id": 2,
+      "class_subject_id": 2,
+      "academic_session_id": 2,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "employee_id": 3,
+      "class_subject_id": 3,
+      "academic_session_id": 3,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "exam_papers": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "examination_id": 1,
+      "subject_id": 1,
+      "full_marks": "100.00",
+      "pass_marks": "33.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "examination_id": 2,
+      "subject_id": 2,
+      "full_marks": "0.00",
+      "pass_marks": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "examination_id": 3,
+      "subject_id": 3,
+      "full_marks": "0.00",
+      "pass_marks": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "published_results": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "examination_id": 1,
+      "student_id": 1,
+      "percentage": "86.00",
+      "gpa": "5.00",
+      "result": "pass",
+      "status": "published",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "examination_id": 2,
+      "student_id": 2,
+      "percentage": "91.00",
+      "gpa": "5.00",
+      "result": "pass",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "examination_id": 3,
+      "student_id": 3,
+      "percentage": "83.00",
+      "gpa": "5.00",
+      "result": "pass",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "fee_plan_lines": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "fee_plan_id": 1,
+      "fee_head_id": 1,
+      "amount": "2500.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "fee_plan_id": 2,
+      "fee_head_id": 2,
+      "amount": "3800.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "fee_plan_id": 3,
+      "fee_head_id": 3,
+      "amount": "1800.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "hostel_leave_requests": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "hostel_allocation_id": 1,
+      "starts_on": "2026-11-05",
+      "ends_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "hostel_allocation_id": 2,
+      "starts_on": "2026-11-05",
+      "ends_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "hostel_allocation_id": 3,
+      "starts_on": "2026-11-05",
+      "ends_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "lms_resources": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "class_subject_id": 1,
+      "title": "Demo Lms Resources",
+      "resource_type": "Demo resource type",
+      "resource_url": "Demo resource url",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "class_subject_id": 2,
+      "title": "Demo Lms Resources",
+      "resource_type": "Demo resource type",
+      "resource_url": "Demo resource url",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "class_subject_id": 3,
+      "title": "Demo Lms Resources",
+      "resource_type": "Demo resource type",
+      "resource_url": "Demo resource url",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "student_promotions": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "student_id": 1,
+      "from_enrollment_id": 1,
+      "to_enrollment_id": 1,
+      "promoted_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "student_id": 2,
+      "from_enrollment_id": 2,
+      "to_enrollment_id": 2,
+      "promoted_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "student_id": 3,
+      "from_enrollment_id": 3,
+      "to_enrollment_id": 3,
+      "promoted_on": "2026-11-05",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "assignment_submissions": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "assignment_id": 1,
+      "student_id": 1,
+      "submitted_at": "2026-11-05 09:00:00",
+      "status": "active",
+      "marks": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "assignment_id": 2,
+      "student_id": 2,
+      "submitted_at": "2026-11-05 09:00:00",
+      "status": "active",
+      "marks": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "assignment_id": 3,
+      "student_id": 3,
+      "submitted_at": "2026-11-05 09:00:00",
+      "status": "active",
+      "marks": "0.00",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "student_attendance": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "attendance_session_id": 1,
+      "student_id": 1,
+      "status": "present",
+      "minutes_late": 0,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "attendance_session_id": 2,
+      "student_id": 2,
+      "status": "present",
+      "minutes_late": 1,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "attendance_session_id": 3,
+      "student_id": 3,
+      "status": "late",
+      "minutes_late": 10,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "exam_marks": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "exam_paper_id": 1,
+      "student_id": 1,
+      "marks": "86.00",
+      "status": "approved",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "exam_paper_id": 2,
+      "student_id": 2,
+      "marks": "91.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "exam_paper_id": 3,
+      "student_id": 3,
+      "marks": "83.00",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "exam_recheck_requests": [
+    {
+      "id": 1,
+      "institution_id": 1,
+      "exam_mark_id": 1,
+      "reason": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 2,
+      "institution_id": 2,
+      "exam_mark_id": 2,
+      "reason": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    },
+    {
+      "id": 3,
+      "institution_id": 3,
+      "exam_mark_id": 3,
+      "reason": "Fictional demonstration record",
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "hifz_groups": [
+    {
+      "id": 1,
+      "institution_id": 3,
+      "name": "Hifz Group A",
+      "employee_id": 3,
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "hifz_enrollments": [
+    {
+      "id": 1,
+      "institution_id": 3,
+      "student_id": 3,
+      "hifz_group_id": 1,
+      "started_on": "2026-11-05",
+      "target_juz": 30,
+      "status": "active",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "hifz_progress_logs": [
+    {
+      "id": 1,
+      "institution_id": 3,
+      "hifz_enrollment_id": 1,
+      "logged_on": "2026-11-05",
+      "sabaq": "Surah Al-Mulk 1-10",
+      "sabqi": "Surah Ar-Rahman",
+      "manzil": "Juz Amma",
+      "juz_completed": 5,
+      "accuracy_percent": "92.00",
+      "notes": "Illustrative progress record",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ],
+  "hifz_assessments": [
+    {
+      "id": 1,
+      "institution_id": 3,
+      "hifz_enrollment_id": 1,
+      "assessed_on": "2026-11-05",
+      "score": "90.00",
+      "remarks": "Good revision",
+      "created_at": "2026-11-05 08:00:00",
+      "updated_at": "2026-11-05 08:00:00"
+    }
+  ]
+}

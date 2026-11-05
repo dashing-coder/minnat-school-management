@@ -1,0 +1,101 @@
+﻿Test ID,Module,Category,Procedure,Expected,Status,Notes
+STUDENTS-01,Students & SIS,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+STUDENTS-02,Students & SIS,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+STUDENTS-03,Students & SIS,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+STUDENTS-04,Students & SIS,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+STUDENTS-05,Students & SIS,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+ADMISSIONS-01,Admissions,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+ADMISSIONS-02,Admissions,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+ADMISSIONS-03,Admissions,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+ADMISSIONS-04,Admissions,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+ADMISSIONS-05,Admissions,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+ACADEMICS-01,Academics & LMS,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+ACADEMICS-02,Academics & LMS,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+ACADEMICS-03,Academics & LMS,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+ACADEMICS-04,Academics & LMS,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+ACADEMICS-05,Academics & LMS,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+ATTENDANCE-01,Attendance,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+ATTENDANCE-02,Attendance,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+ATTENDANCE-03,Attendance,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+ATTENDANCE-04,Attendance,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+ATTENDANCE-05,Attendance,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+EXAMS-01,Exams & Results,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+EXAMS-02,Exams & Results,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+EXAMS-03,Exams & Results,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+EXAMS-04,Exams & Results,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+EXAMS-05,Exams & Results,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+FINANCE-01,Fees & Accounting,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+FINANCE-02,Fees & Accounting,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+FINANCE-03,Fees & Accounting,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+FINANCE-04,Fees & Accounting,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+FINANCE-05,Fees & Accounting,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+HR-01,Teachers & HR,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+HR-02,Teachers & HR,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+HR-03,Teachers & HR,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+HR-04,Teachers & HR,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+HR-05,Teachers & HR,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+COMMUNICATION-01,Communication,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+COMMUNICATION-02,Communication,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+COMMUNICATION-03,Communication,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+COMMUNICATION-04,Communication,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+COMMUNICATION-05,Communication,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+LIBRARY-01,Library,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+LIBRARY-02,Library,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+LIBRARY-03,Library,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+LIBRARY-04,Library,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+LIBRARY-05,Library,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+RESIDENTIAL-01,Hostel & Transport,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+RESIDENTIAL-02,Hostel & Transport,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+RESIDENTIAL-03,Hostel & Transport,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+RESIDENTIAL-04,Hostel & Transport,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+RESIDENTIAL-05,Hostel & Transport,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+INVENTORY-01,Inventory & Assets,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+INVENTORY-02,Inventory & Assets,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+INVENTORY-03,Inventory & Assets,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+INVENTORY-04,Inventory & Assets,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+INVENTORY-05,Inventory & Assets,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+SECURITY-01,Security & Analytics,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+SECURITY-02,Security & Analytics,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+SECURITY-03,Security & Analytics,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+SECURITY-04,Security & Analytics,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+SECURITY-05,Security & Analytics,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+INSTITUTIONS-01,Institutions & Campuses,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+INSTITUTIONS-02,Institutions & Campuses,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+INSTITUTIONS-03,Institutions & Campuses,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+INSTITUTIONS-04,Institutions & Campuses,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+INSTITUTIONS-05,Institutions & Campuses,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+LIFECYCLE-01,Academic Lifecycle,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+LIFECYCLE-02,Academic Lifecycle,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+LIFECYCLE-03,Academic Lifecycle,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+LIFECYCLE-04,Academic Lifecycle,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+LIFECYCLE-05,Academic Lifecycle,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+HIFZ-01,Hifz & Madrasha,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+HIFZ-02,Hifz & Madrasha,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+HIFZ-03,Hifz & Madrasha,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+HIFZ-04,Hifz & Madrasha,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+HIFZ-05,Hifz & Madrasha,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+SCHOLARSHIP-01,Scholarships & Donations,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+SCHOLARSHIP-02,Scholarships & Donations,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+SCHOLARSHIP-03,Scholarships & Donations,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+SCHOLARSHIP-04,Scholarships & Donations,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+SCHOLARSHIP-05,Scholarships & Donations,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+WELFARE-01,Student Welfare,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+WELFARE-02,Student Welfare,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+WELFARE-03,Student Welfare,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+WELFARE-04,Student Welfare,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+WELFARE-05,Student Welfare,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+CERTIFICATES-01,Certificates,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+CERTIFICATES-02,Certificates,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+CERTIFICATES-03,Certificates,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+CERTIFICATES-04,Certificates,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+CERTIFICATES-05,Certificates,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+CAMPUS-01,Campus & Events,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+CAMPUS-02,Campus & Events,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+CAMPUS-03,Campus & Events,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+CAMPUS-04,Campus & Events,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+CAMPUS-05,Campus & Events,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test
+INTEGRATIONS-01,Integrations,Availability,Open module landing page with authorized role,"Accessible page, permission enforced; no other-tenant records",NOT RUN,Requires local Laravel+MySQL browser test
+INTEGRATIONS-02,Integrations,Authorization,Open same page as unauthorized institution role,403 or navigation hidden; no data disclosure,NOT RUN,Requires local Laravel+MySQL browser test
+INTEGRATIONS-03,Integrations,Campus isolation,Try restricted-campus account against other campus rows,Other campus records inaccessible,NOT RUN,Requires local Laravel+MySQL browser test
+INTEGRATIONS-04,Integrations,Core workflow,Complete the primary create/approve/reverse workflow,"Validated, audited, persisted transaction (if implemented)",NOT RUN,Requires local Laravel+MySQL browser test
+INTEGRATIONS-05,Integrations,Reporting,Generate module report or CSV,"Correct scope, totals and no sensitive exports",NOT RUN,Requires local Laravel+MySQL browser test

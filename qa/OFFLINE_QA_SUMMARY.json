@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-05",
+  "modules": 20,
+  "registers": 111,
+  "migration_tables": 120,
+  "php_files": 50,
+  "php_lint_passed": 50,
+  "schema_missing": [],
+  "missing_scope": [],
+  "sample_fixture_records": 602,
+  "sample_ledger_imbalances": [],
+  "sample_invoice_allocation_mismatches": [],
+  "runtime_e2e": "NOT RUN - dependencies/database unavailable"
+}
