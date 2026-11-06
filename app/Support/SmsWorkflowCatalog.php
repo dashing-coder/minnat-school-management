@@ -49,12 +49,39 @@ final class SmsWorkflowCatalog
         'bank-reconcile'=>['label'=>'Reconcile bank account','module'=>'finance','permission'=>'accounting.reconcile','description'=>'Compares statement balance to the posted general ledger as of a selected date.','fields'=>[
             'bank_account_id'=>['select','bank_accounts'],'statement_on'=>['date'],'statement_balance'=>['money'],
         ]],
+        'fee-plan-bill'=>['label'=>'Bill a student from fee plan','module'=>'finance','permission'=>'fees.adjust',
+            'description'=>'Generates an itemized invoice from a configured active fee plan and posts a balanced revenue journal.',
+            'fields'=>[
+                'student_id'=>['select','students'],'fee_plan_id'=>['select','fee_plans'],
+                'receivable_account_id'=>['select','chart_of_accounts'],'invoice_no'=>['text'],
+                'issued_on'=>['date'],'due_on'=>['date'],
+            ]],
         'payroll-run'=>['label'=>'Generate draft payroll','module'=>'hr','permission'=>'payroll.process','description'=>'Creates payslips from active employees at their basic salary. Payroll approval and disbursement are separate.','fields'=>[
             'period_start'=>['date'],'period_end'=>['date'],
         ]],
+        'payroll-add-earning'=>['label'=>'Add payroll earning or allowance','module'=>'hr','permission'=>'payroll.process',
+            'description'=>'Adjust only a draft payslip. Additional earnings increase the gross and net salary.',
+            'fields'=>['payslip_id'=>['select','payslips'],'description'=>['text'],'amount'=>['money']]],
+        'payroll-add-deduction'=>['label'=>'Apply payroll deduction/withholding','module'=>'hr','permission'=>'payroll.process',
+            'description'=>'Draft-only manual deduction; requires an existing institution-owned withholding liability account. Tax rates are NOT calculated automatically.',
+            'fields'=>['payslip_id'=>['select','payslips'],'liability_account_id'=>['select','chart_of_accounts'],
+                'description'=>['text'],'amount'=>['money']]],
         'payroll-approve'=>['label'=>'Approve payroll batch','module'=>'hr','permission'=>'payroll.approve','description'=>'Approves draft payroll; does not initiate bank disbursement.','fields'=>[
             'payroll_run_id'=>['select','payroll_runs'],
         ]],
+        'payroll-post-liability'=>['label'=>'Post payroll liabilities','module'=>'hr','permission'=>'accounting.post',
+            'description'=>'For an approved, undisbursed batch: debit payroll expense, credit wages payable (no external transfer).',
+            'fields'=>[
+                'payroll_run_id'=>['select','payroll_runs'],
+                'expense_account_id'=>['select','chart_of_accounts'],
+                'payable_account_id'=>['select','chart_of_accounts'],'posted_on'=>['date'],
+            ]],
+        'payroll-record-disbursement'=>['label'=>'Record verified payroll disbursement','module'=>'hr','permission'=>'accounting.post',
+            'description'=>'After independently verifying the bank/cash payment, debit wages payable and credit cash; no gateway transfer.',
+            'fields'=>[
+                'payroll_run_id'=>['select','payroll_runs'],
+                'cash_account_id'=>['select','chart_of_accounts'],'paid_on'=>['date'],
+            ]],
         'library-issue'=>['label'=>'Issue library book','module'=>'library','permission'=>'library.manage','description'=>'Prevents lending an unavailable copy.','fields'=>[
             'library_copy_id'=>['select','library_copies'],'student_id'=>['select','students'],'issued_on'=>['date'],'due_on'=>['date'],
         ]],

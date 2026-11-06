@@ -34,7 +34,7 @@ final class SmsQualityAudit
             $database = (string) DB::connection()->getDatabaseName();
             $add('MYSQL_CONNECTION', 'PASS', 'Connected to the configured database '.$database);
         } catch (Throwable $e) {
-            $add('MYSQL_CONNECTION', 'FAIL', 'Unable to connect to configured database; inspect .env/port/permissions.');
+            $add('MYSQL_CONNECTION', 'FAIL', 'Unable to connect to the configured database; check driver, host, port and .env.');
             $summary['pass'] = count(array_filter($checks, fn($c) => $c['status'] === 'PASS'));
             $summary['fail'] = count(array_filter($checks, fn($c) => $c['status'] === 'FAIL'));
             $summary['warn'] = 0;
@@ -100,17 +100,44 @@ final class SmsQualityAudit
                 ->whereRaw('paid_amount < 0 OR total_amount < 0 OR paid_amount > total_amount')->count();
             $add('INVOICE_AMOUNT_BOUNDS', $invalid ? 'FAIL' : 'PASS', $invalid.' invoices with invalid amount bounds');
         }
-        if (self::present(['student_invoices', 'payment_allocations'])) {
+        if (self::present(['student_invoices', 'payment_allocations', 'payment_refunds', 'student_payments'])) {
+            $allocated = DB::table('payment_allocations')
+                ->select('institution_id','student_invoice_id')
+                ->selectRaw('SUM(amount) AS amount')
+                ->groupBy('institution_id','student_invoice_id');
+            $refunded = DB::table('payment_refunds as r')->join('student_payments as p',function($join){
+                $join->on('p.id','=','r.student_payment_id')->on('p.institution_id','=','r.institution_id');
+            })->whereIn('r.status',['approved','processed'])
+                ->select('p.institution_id','p.student_invoice_id')
+                ->selectRaw('SUM(r.amount) AS amount')
+                ->groupBy('p.institution_id','p.student_invoice_id');
             $rows = DB::table('student_invoices as i')
-                ->leftJoin('payment_allocations as a', function ($join) {
-                    $join->on('a.institution_id', '=', 'i.institution_id')->on('a.student_invoice_id', '=', 'i.id');
-                })
-                ->select('i.id', 'i.paid_amount')
-                ->selectRaw('COALESCE(SUM(a.amount),0) AS allocated')
-                ->groupBy('i.id', 'i.paid_amount')->get();
-            $mismatched = $rows->filter(fn($row) => abs((float)$row->paid_amount-(float)$row->allocated) > 0.009)->count();
-            $add('INVOICE_PAYMENT_RECONCILIATION', $mismatched ? 'WARN' : 'PASS',
-                $mismatched.' invoices whose paid_amount differs from payment allocations (check refunds and statuses)');
+                ->leftJoinSub($allocated,'a',function($j){
+                    $j->on('a.institution_id','=','i.institution_id')->on('a.student_invoice_id','=','i.id');
+                })->leftJoinSub($refunded,'r',function($j){
+                    $j->on('r.institution_id','=','i.institution_id')->on('r.student_invoice_id','=','i.id');
+                })->select('i.id','i.paid_amount')->selectRaw('COALESCE(a.amount,0) AS allocated')
+                ->selectRaw('COALESCE(r.amount,0) AS refunded')->get();
+            $mismatched = $rows->filter(fn($row) =>
+                abs((float)$row->paid_amount-((float)$row->allocated-(float)$row->refunded)) > 0.009)->count();
+            $add('INVOICE_PAYMENT_RECONCILIATION', $mismatched ? 'FAIL' : 'PASS',
+                $mismatched.' invoices differ from allocations minus approved refunds');
+        }
+        if (self::present(['student_invoices','student_invoice_lines'])) {
+            $lineTotals=DB::table('student_invoice_lines')->select('institution_id','student_invoice_id')
+                ->selectRaw('SUM(amount) AS amount')->groupBy('institution_id','student_invoice_id');
+            $rows=DB::table('student_invoices as i')->leftJoinSub($lineTotals,'l',function($j){
+                $j->on('l.institution_id','=','i.institution_id')->on('l.student_invoice_id','=','i.id');
+            })->select('i.total_amount')->selectRaw('COALESCE(l.amount,0) AS line_amount')->get();
+            $bad=$rows->filter(fn($r)=>abs((float)$r->total_amount-(float)$r->line_amount)>0.009)->count();
+            $add('INVOICE_LINE_TOTALS',$bad?'FAIL':'PASS',$bad.' invoice headers differ from their fee lines');
+        }
+        if (self::present(['ledger_journals'])) {
+            $dups=DB::table('ledger_journals')->whereNotNull('source_reference')
+                ->select('institution_id','source_type','source_reference')
+                ->groupBy('institution_id','source_type','source_reference')
+                ->havingRaw('COUNT(*) > 1')->get()->count();
+            $add('JOURNAL_SOURCE_UNIQUENESS',$dups?'FAIL':'PASS',$dups.' duplicated journal source keys');
         }
         if (self::present(['ledger_journals', 'ledger_lines'])) {
             $journals = DB::table('ledger_journals as j')
@@ -126,6 +153,26 @@ final class SmsQualityAudit
             $duplicates = DB::table('student_attendance')->select('institution_id', 'attendance_session_id', 'student_id')
                 ->groupBy('institution_id', 'attendance_session_id', 'student_id')->havingRaw('COUNT(*) > 1')->get()->count();
             $add('ATTENDANCE_DUPLICATES', $duplicates ? 'FAIL' : 'PASS', $duplicates.' duplicate student attendance keys');
+        }
+        if (self::present(['exam_marks','exam_papers'])) {
+            $invalid=DB::table('exam_marks as m')->join('exam_papers as p',function($j){
+                $j->on('p.id','=','m.exam_paper_id')->on('p.institution_id','=','m.institution_id');
+            })->where(fn($q)=>$q->where('m.marks','<',0)->orWhereColumn('m.marks','>','p.full_marks'))->count();
+            $add('EXAM_MARK_BOUNDS',$invalid?'FAIL':'PASS',$invalid.' exam marks outside paper bounds');
+        }
+        if (self::present(['payslips'])) {
+            $invalid=DB::table('payslips')->whereRaw('ABS(gross_amount - deduction_amount - net_amount) > 0.009')->count();
+            $add('PAYROLL_NET_AMOUNT',$invalid?'FAIL':'PASS',$invalid.' payslips with inconsistent net salary');
+        }
+        if (self::present(['hostel_allocations'])) {
+            $duplicates=DB::table('hostel_allocations')->where('status','active')
+                ->select('institution_id','hostel_bed_id')->groupBy('institution_id','hostel_bed_id')
+                ->havingRaw('COUNT(*) > 1')->get()->count();
+            $add('HOSTEL_BED_DOUBLE_BOOKING',$duplicates?'FAIL':'PASS',$duplicates.' beds with multiple active allocations');
+        }
+        if (self::present(['students'])) {
+            $count=DB::table('students')->count();
+            $add('STUDENT_RECORDS',$count?'PASS':'WARN',$count.' student records; empty business data means workflows are not exercised');
         }
         $summary['pass'] = count(array_filter($checks, fn($c) => $c['status'] === 'PASS'));
         $summary['fail'] = count(array_filter($checks, fn($c) => $c['status'] === 'FAIL'));

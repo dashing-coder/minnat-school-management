@@ -1,0 +1,21 @@
+﻿module,name,permission,schema_tables,present_in_sql,tables_with_data,basic_editable_registers,guided_workflows,operational_reports,qa_status
+students,Students & SIS,students.view,4,4,0,1,0,0,Not end-to-end tested
+admissions,Admissions,admissions.view,3,3,0,1,3,0,Not end-to-end tested
+academics,Academics & LMS,academics.manage,15,15,0,11,1,0,Not end-to-end tested
+attendance,Attendance,attendance.view,3,3,0,0,2,1,Not end-to-end tested
+exams,Exams & Results,exams.view,7,7,0,4,2,1,Not end-to-end tested
+finance,Fees & Accounting,fees.view,16,16,0,6,5,2,Not end-to-end tested
+hr,Teachers & HR,hr.view,7,7,0,2,4,1,Not end-to-end tested
+communication,Communication,institutions.manage,5,5,0,2,0,0,Not end-to-end tested
+library,Library,library.manage,3,3,0,2,2,0,Not end-to-end tested
+residential,Hostel & Transport,hostel.manage,10,10,0,7,2,0,Not end-to-end tested
+inventory,Inventory & Assets,inventory.manage,7,7,0,3,1,1,Not end-to-end tested
+security,Security & Analytics,audit.view,4,4,2,0,0,0,Not end-to-end tested
+institutions,Institutions & Campuses,institutions.manage,3,3,0,2,0,0,Not end-to-end tested
+lifecycle,Academic Lifecycle,students.view,4,4,0,0,2,0,Not end-to-end tested
+hifz,Hifz & Madrasha,hifz.progress.record,4,4,0,2,1,1,Not end-to-end tested
+scholarship,Scholarships & Donations,donations.manage,6,6,0,3,1,1,Not end-to-end tested
+welfare,Student Welfare,institutions.manage,3,3,0,0,0,0,Not end-to-end tested
+certificates,Certificates,institutions.manage,2,2,0,1,1,0,Not end-to-end tested
+campus,Campus & Events,campuses.view,3,3,0,3,0,0,Not end-to-end tested
+integrations,Integrations,institutions.manage,2,2,0,0,0,0,Not end-to-end tested

@@ -1,99 +1,89 @@
-# CampusSphere — Rich Sample Database for Laravel ERP
+# CampusSphere SCM — **Working sample data**, not merely empty database tables
 
-**Release:** November 5, 2026  
-**Compatible with:** The previously delivered CampusSphere expanded Laravel 12 + MySQL 8 source package  
-**Scope:** School, College and Madrasha demo institutions; synthetic records only.
+This package is tailored to the user's uploaded `minnat-school-management.zip` Laravel project and `scm-system.sql` MariaDB export (126 tables). Their SQL dump had **one school and 38 permissions but zero student/academic/financial records**. The previous source ZIPs did **not** automatically seed their local MariaDB database. That is why modules repeatedly appeared empty.
 
-This package provides **1,723 additional fictional linked records** to complement the previous **602-record** seed dataset. The combined **fresh demo SQL** contains **2,325 rows across 120 database tables**. Records added cover 41 functional tables, including enrollment, attendance, exams, fees, accounting, payroll drafts, library, stock, hostel, transport and Hifz. It is *sample content*, not an indication that all ERP software functions are complete.
+## DOWNLOAD CONTENTS
 
-## Choose ONE path — do not mix
+- `database/seeders/SmsScmFullSampleSeeder.php` — **recommended**: adds the official 602-record original demo fixture, preserves existing School admin membership and roles, remaps the differing institution/user/role/membership IDs, then runs the included rich extension for 72 additional fictitious students and related records. It changes *only the local demo school administrator* password to `SchoolAdmin@2026` as requested.
+- `database/seeders/SmsExtendedDemoSeeder.php` — rich additional records for all three demo institutions.
+- `database/seeders/SmsDemoFinancialReferenceRepairSeeder.php` — corrects known fixture accounting references and library/hostel demo statuses.
+- `database/seeders/data/sms_demo_fixtures.json` — actual 602-record baseline.
+- `database/sql/SCM_FRESH_126_TABLES_WITH_DEMO_DATA.sql` — separate **fresh database only** SQL installer with 126 tables and the baseline 602 demonstration records. Do not import into your existing database. It does not include the 72-user rich extension, which is available via Laravel seeding.
+- `verification/VERIFY_SAMPLE_DATA.sql` — read-only SQL checks.
 
-### A. RECOMMENDED: Add sample data to your already working Laravel database
+## OPTION A — KEEP YOUR WORKING LOCAL DATABASE (RECOMMENDED)
 
-Your previous local CampusSphere install used `scm-system` on MySQL port `3307`, and `admin.school@example.test` was working. **Use this additive method.** It does not modify existing user passwords, application code, roles, or existing rows, and never clears the database.
+**1. Back up `scm-system` using phpMyAdmin Export before doing anything.** Only use a copy of your *empty demo* database; never seed an actual school database.
 
-1. **Back up** the working `scm-system` database and Laravel project.
-2. Confirm your project has the three demonstration institutions with codes `SCHDEMO`, `COLDEMO`, `MADDEMO` and that the original demo seeder has run. If your database contains actual institutional records or additional institutions, **STOP**; the seeder will refuse to run.
-3. Copy `database/seeders/SmsExtendedDemoSeeder.php` into your Laravel project's `database/seeders/` directory. Do **not** replace your existing `.env` or original seeders.
-4. In your local `.env`, temporarily add:
+**2. Extract this ZIP.** Copy its `database/seeders` folder into your Laravel project, keeping the folder layout. Do not replace `.env`, other Laravel source files, or the MySQL DB itself. This assumes you've applied the 2026-11-06 release candidate; otherwise copy the bundled companion seeders too (already included).
 
-```dotenv
+**3.** In your **local/staging** Laravel `.env` (not production), add these lines (one instance each):
+
+```env
 APP_ENV=local
+SMS_ALLOW_SCM_FULL_SAMPLE=true
 SMS_ALLOW_RICH_DEMO_SEED=true
+SMS_ALLOW_DEMO_REPAIR=true
+SESSION_DRIVER=file
+CACHE_STORE=file
 ```
 
-5. From PowerShell in the project folder containing `artisan`:
+Keep your existing DB connection settings, such as `DB_DATABASE=scm-system` and `DB_PORT=3307`, unchanged **only if you are sure this database contains fictional demo data and no real records**.
+
+**4.** In PowerShell/CMD inside the Laravel project directory (the folder with `artisan`):
 
 ```powershell
 php artisan config:clear
 php artisan migrate:status
-php artisan db:seed --class=SmsExtendedDemoSeeder
+php artisan db:seed --class=SmsScmFullSampleSeeder
+php artisan sms:qa
+php artisan sms:finance:reconcile --json
 ```
 
-6. **Remove `SMS_ALLOW_RICH_DEMO_SEED=true`** immediately after seeding (or change it to `false`). Keep your existing `CACHE_STORE=file` and `SESSION_DRIVER=file` settings unchanged.
-7. Run `php artisan sms:qa`, then load dashboard and registers. Run the read-only queries from `database/sql/CHECK_RICH_DEMO.sql` using phpMyAdmin if desired.
+You should see populated institutions **SCHDEMO, COLDEMO, MADDEMO**, with **75 students total** if the complete extension runs, invoices, payments, exam marks, attendance and Hifz entries. The seeder refuses a partially populated database and performs a transactional rollback on exceptions. **Do not run the seeder twice.**
 
-**Safety guardrails:** Only local/testing environment, explicit opt-in, exact three known demonstration tenant codes, baseline admin present, migrations/tables verified, and no prior `SCH-EX-*`, `COL-EX-*`, `MAD-EX-*` students. All inserts run in one transaction and are rolled back if the seeding fails. Re-running after successful insertion reports that records already exist. The seeder intentionally never accesses or changes `users.password`.
+**5.** Turn all three `SMS_ALLOW_*` flags back to `false`, run `php artisan config:clear`, and sign out/sign in again.
 
-### B. Fresh Laravel installation (new, empty database)
+**Local demonstration administrator:** `admin.school@example.test` / `SchoolAdmin@2026`.
 
-For a **new clean local database only** with the CampusSphere source installed:
+This is intentionally fixed for local demonstration **only**. Immediately change it to a unique strong password before publishing/deploying this application.
+
+## OPTION B — SEPARATE FRESH DEMO DATABASE USING phpMyAdmin (126 TABLES + 602 RECORDS)
+
+This is for users who want a one-click SQL import instead of running the Laravel seeder.
+
+1. Create a **new empty database** such as `scm_demo_fresh` in phpMyAdmin. Do **not** choose your working `scm-system` DB.
+2. Select the new DB > Import > `SCM_FRESH_126_TABLES_WITH_DEMO_DATA.sql`.
+3. In a **copy** of the Laravel project change only `DB_DATABASE=scm_demo_fresh`, keeping the correct host, port and credentials. Run `php artisan config:clear`.
+4. Login with `admin.school@example.test` / `SchoolAdmin@2026`.
+5. This SQL contains the initial **602** fixture records (3 students, one per institution), not the expanded 75-student set. **Do not run `SmsScmFullSampleSeeder` after importing this file**: it is exclusively for the empty **single-school** `scm-system` baseline. To enrich the new database, use:
 
 ```powershell
-php artisan migrate
-# First, set SMS_ALLOW_DEMO_SEED=true in your local .env
-php artisan db:seed --class=SmsFullDemoSeeder
-# Disable SMS_ALLOW_DEMO_SEED and enable SMS_ALLOW_RICH_DEMO_SEED=true
+# only in a local/staging demo instance:
+# .env: APP_ENV=local ; SMS_ALLOW_RICH_DEMO_SEED=true
+php artisan config:clear
 php artisan db:seed --class=SmsExtendedDemoSeeder
-# Disable SMS_ALLOW_RICH_DEMO_SEED again
 ```
 
-The base seeder prints strong random login passwords once. The second seeder adds linked data **without changing those passwords**. The `SmsFullDemoSeeder.php` and its JSON fixture are included as a reference in this ZIP; on your existing application, use its own original seeder if present.
+This adds 72 fictitious students (75 total) and related records. Disable `SMS_ALLOW_RICH_DEMO_SEED` afterward.
 
-### C. phpMyAdmin / standalone MySQL import (ONLY a new empty database)
+## CHECK THAT YOUR DATA ACTUALLY EXISTS
 
-The ZIP contains `database/sql/SMS_ERP_MYSQL8_FRESH_RICH_DEMO.sql` with 120 `CREATE TABLE` definitions plus 2,325 sample records. Create a **separate new, empty database** (e.g. `campussphere_rich_demo`) and import this file into it.
+In **phpMyAdmin > selected DB > SQL**, run `verification/VERIFY_SAMPLE_DATA.sql`. Also verify in Tinker:
 
-**Never import the full SQL into your existing `scm-system` database.** It will collide with existing tables and is not a patch. This raw SQL import doesn't populate Laravel's `migrations` table, so **do not** run `php artisan migrate` on the same imported schema. It is intended for database exploration; for a working Laravel application, choose A or B.
+```php
+DB::connection()->getDatabaseName();
+DB::table('institutions')->count();
+DB::table('students')->count();
+DB::table('student_invoices')->count();
+DB::table('exam_marks')->count();
+```
 
-Raw SQL users receive bcrypt hashes for unknown random passwords; you will need to set a local password through Laravel if you want to authenticate. Prefer the Laravel seeders instead.
+If the SQL says 75 students but the dashboard is still empty, the website may be connected to a different database, the wrong institution may be selected, or session/cache config needs clearing. **Do not run the seeders repeatedly**.
 
-## New sample record summary
+## SAFETY & VALIDATION
 
-| Data group | Additional rows |
-|---|---:|
-| Students / guardians / relationships / documents / enrollment | 324 |
-| Admission applications | 24 |
-| Attendance sessions + student attendance | 375 |
-| Examinations, papers, marks, results | 150 |
-| Finance: fee heads, invoices, lines, payments, allocations, journals and lines | 603 |
-| Staff, payroll drafts and attendance | 69 |
-| Library (books, copies, loans) | 33 |
-| Inventory and stock movement | 27 |
-| Hostel (rooms, beds, allocations) | 33 |
-| Transport (stops, student assignments) | 18 |
-| Donors, donations, scholarship awards and notices | 27 |
-| Madrasha Hifz enrollment, progress and assessment | 40 |
-| **TOTAL** | **1,723** |
-
-The package includes 24 newly enrolled students per school/college/madrasha (72 in total), five sample attendance days per institution, varied absence/late statuses, one extra 100-mark exam per institution, paid/partially paid/unpaid tuition invoices, balanced invoice/payment ledger journals, draft payroll, inventory movements, and Hifz progress for 8 fictional students.
-
-**Financial demo behavior:** Sample tuition invoices use their own fee head and generate balanced posted journal entries, with allocated payments equal to invoice paid totals. Draft payroll, scholarship awards, donation receipts, and boarding/transport fees do **not** automatically post extra general-ledger transactions; those accounting workflows need separate application QA.
-
-## Included files
-
-- `database/seeders/SmsExtendedDemoSeeder.php` — **additive** seeder for the already-populated demo database.
-- `database/seeders/SmsFullDemoSeeder.php` — original baseline full seeder (reference for fresh installs).
-- `database/seeders/data/sms_demo_fixtures.json` — original 602-row baseline JSON (reference).
-- `database/sql/SMS_ERP_MYSQL8_FRESH_RICH_DEMO.sql` — **fresh empty database only**, schema + rich data.
-- `database/sql/CHECK_RICH_DEMO.sql` — read-only dashboard/finance/relationship verification queries.
-- `docs/SAMPLE_DATA_PREVIEW.json` — representative sample rows (no passwords).
-- `docs/OFFLINE_VALIDATION_REPORT.json` — offline referential, key, money and stock checks.
-- `docs/ROW_COUNTS.json` — table-wise row counts in the fresh rich example.
-- `docs/INSTALLATION_BANGLA.md` — বাংলা ইনস্টলেশন গাইড।
-
-## Verification performed and limitations
-
-The seeder passed PHP 8.4 syntax validation, and an **offline mocked seeder run** generated 1,723 added rows. The assembled dataset passed duplicate-key checks, **262 MySQL foreign-key definitions**, invoice/payment allocation reconciliation, journal balance checks, library/hostel status checks, stock non-negativity, and payroll arithmetic. ZIP integrity is checked at packaging time.
-
-**Actual `php artisan db:seed` execution in Laravel/MySQL and browser QA were NOT performed in this environment.** Make a database backup, apply to your local demo only, and review the command output before relying on the records. No real student names, phone numbers, email addresses or financial accounts are supplied.
+- No credentials other than the requested school demo login are shared. The fresh SQL uses bcrypt hashes, never plaintext passwords.
+- This does not load real student data or access the user's actual local MariaDB database.
+- The patch contains only migrations-compatible **seeder assets**, not full replacement source code.
+- PHP syntax, fixture/SQL shape, ZIP integrity, and offline foreign-key projection were checked. **Live MySQL import and full Laravel seeding have NOT been run here**; use backup/staging first and report runtime errors if they occur.

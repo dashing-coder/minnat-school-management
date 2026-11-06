@@ -8,8 +8,8 @@ use App\Http\Middleware\Sms\RequireInstitutionPermission;
 use App\Http\Middleware\Sms\ResolveInstitutionContext;
 use Illuminate\Support\Facades\Route;
 
-// This file is included from routes/api.php, which already has the /api prefix.
-Route::middleware(['auth:sanctum', ResolveInstitutionContext::class])
+// Registered from bootstrap/app.php under /api with the web session middleware; same-origin only.
+Route::middleware(['auth', ResolveInstitutionContext::class])
     ->prefix('v1/institutions/{institution}')
     ->group(function (): void {
         Route::get('/context', [InstitutionContextController::class, 'show'])

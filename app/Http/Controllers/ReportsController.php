@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 
 use App\Support\SmsAccess;
 use Illuminate\Support\Facades\DB;
+use App\Support\SmsAudit;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 final class ReportsController
 {
@@ -12,7 +14,7 @@ final class ReportsController
         'attendance'=>['label'=>'Student Attendance Summary','module'=>'attendance','permission'=>'attendance.view'],
         'results'=>['label'=>'Published Examination Results','module'=>'exams','permission'=>'exams.view'],
         'hifz'=>['label'=>'Hifz Progress Review','module'=>'hifz','permission'=>'hifz.progress.record'],
-        'payroll'=>['label'=>'Payroll Register','module'=>'hr','permission'=>'hr.view'],
+        'payroll'=>['label'=>'Payroll Register','module'=>'hr','permission'=>'payroll.process'],
         'stock'=>['label'=>'Inventory Stock on Hand','module'=>'inventory','permission'=>'inventory.manage'],
         'donations'=>['label'=>'Donation Fund Register','module'=>'scholarship','permission'=>'donations.manage'],
     ];
@@ -21,6 +23,35 @@ final class ReportsController
         return array_filter(self::REPORTS,fn($r)=>$r['module']===$slug);
     }
     public function show(string $report)
+    {
+        [$config,$columns,$rows,$note]=$this->data($report);
+        return view('reports.show',compact('report','config','columns','rows','note'));
+    }
+
+    /** Download exactly the same scoped 200-row report as the on-screen view. */
+    public function export(string $report): StreamedResponse
+    {
+        SmsAccess::require('reports.export');
+        [$config,$columns,$rows] = $this->data($report);
+        SmsAudit::record('reports.export','report',$report);
+        return response()->streamDownload(static function () use ($columns,$rows): void {
+            $output=fopen('php://output','w');
+            fputcsv($output,$columns);
+            foreach($rows as $row) {
+                $cells=[];
+                foreach(array_values((array)$row) as $value) {
+                    $s=is_scalar($value)?(string)$value:'';
+                    if(preg_match('/^\s*[=+@-]/u',$s)) $s="'".$s;
+                    $cells[]=$s;
+                }
+                fputcsv($output,$cells);
+            }
+            fclose($output);
+        },'campussphere-'.preg_replace('/[^a-z0-9-]/i','',$report).'.csv',
+            ['Content-Type'=>'text/csv; charset=UTF-8','Cache-Control'=>'private, no-store']);
+    }
+
+    private function data(string $report): array
     {
         $config=self::REPORTS[$report]??null;abort_unless($config,404);
         SmsAccess::require($config['permission']);
@@ -80,6 +111,7 @@ final class ReportsController
                         'hifz_progress_logs.accuracy_percent as accuracy_percent')->orderByDesc('hifz_progress_logs.id')->limit(200)->get();
                 break;
             case 'payroll':
+                SmsAccess::require('payroll.process');
                 abort_unless((int)SmsAccess::membership()->can_access_all_campuses===1,403);
                 $columns=['Employee','Period Start','Period End','Gross','Deduction','Net','Status'];
                 $rows=SmsAccess::scopedQuery('payslips')->join('employees as e',function($j){$j->on('e.id','=','payslips.employee_id')->on('e.institution_id','=','payslips.institution_id');})
@@ -104,6 +136,6 @@ final class ReportsController
                     ->orderByDesc('donations.received_on')->limit(200)->get();
                 break;
         }
-        return view('reports.show',compact('report','config','columns','rows','note'));
+        return [$config,$columns,$rows,$note];
     }
 }

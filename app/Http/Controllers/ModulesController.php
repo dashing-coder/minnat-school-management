@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 use App\Support\ModuleCatalog;
 use App\Support\SmsAccess;
+use App\Support\SmsTablePolicy;
+use App\Support\SmsAudit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Symfony\Component\HttpFoundation\StreamedResponse;
@@ -9,14 +11,14 @@ final class ModulesController {
     private function authorizeModule(string $slug, ?string $table=null): array {
         $module=ModuleCatalog::find($slug); abort_unless($module,404);
         SmsAccess::require($module['permission']);
-        if ($table!==null) { abort_unless(ModuleCatalog::includesTable($slug,$table),404); abort_unless(Schema::hasTable($table),404); }
+        if ($table!==null) { abort_unless(ModuleCatalog::includesTable($slug,$table),404); abort_unless(Schema::hasTable($table),404); SmsTablePolicy::requireRead($table); }
         return $module;
     }
     public function home(string $slug) {
         $module=$this->authorizeModule($slug);
         $tables=[];
         foreach ($module['tables'] as $table) {
-            if (!Schema::hasTable($table)) continue;
+            if (!Schema::hasTable($table) || !SmsTablePolicy::canRead($table)) continue;
             $tables[]=['name'=>$table,'count'=>SmsAccess::scopedQuery($table)->count()];
         }
         return view('modules.home',compact('slug','module','tables'));
@@ -24,7 +26,7 @@ final class ModulesController {
     public function records(Request $request,string $slug,string $table) {
         $module=$this->authorizeModule($slug,$table);
         $columns=Schema::getColumnListing($table);
-        $display=array_slice(array_values(array_filter($columns, fn($c)=> !preg_match('/(password|secret|credential|token|private_key|api_key|payload|before_data|after_data|metadata|encrypted|config)/i',$c) && !in_array($c,['body'],true))),0,9);
+        $display=SmsTablePolicy::displayColumns($table,$columns);
         $q=SmsAccess::scopedQuery($table);
         $search=trim((string)$request->query('q',''));
         $searchField=collect(['name','title','code','admission_no','invoice_no','application_no','journal_no','employee_no','email'])->first(fn($x)=>in_array($x,$columns,true));
@@ -37,7 +39,8 @@ final class ModulesController {
     public function export(string $slug,string $table): StreamedResponse {
         $this->authorizeModule($slug,$table); SmsAccess::require('reports.export');
         // Export is deliberately restricted to records already scoped to the current institution.
-        $columns=array_values(array_filter(Schema::getColumnListing($table),fn($c)=> !preg_match('/(password|secret|credential|token|private_key|api_key|payload|before_data|after_data|metadata|encrypted|config)/i',$c)));
+        $columns=SmsTablePolicy::exportColumns($table);
+        SmsAudit::record('register.export',$table,SmsAccess::institutionId());
         $filename=$table.'-institution-'.SmsAccess::institutionId().'.csv';
         return response()->streamDownload(function () use($table,$columns) {
             $stream=fopen('php://output','w'); fputcsv($stream,$columns);

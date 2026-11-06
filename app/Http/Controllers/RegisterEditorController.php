@@ -5,6 +5,7 @@ use App\Support\EditableRegisters;
 use App\Support\ModuleCatalog;
 use App\Support\SmsAccess;
 use App\Support\SmsAudit;
+use App\Support\SmsTablePolicy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -60,6 +61,7 @@ final class RegisterEditorController
     {
         return ModuleCatalog::includesTable($slug, $table)
             && EditableRegisters::fields($table) !== null
+            && SmsTablePolicy::canRead($table)
             && SmsAccess::has(self::writePermission($slug,$table));
     }
 
@@ -68,6 +70,7 @@ final class RegisterEditorController
         $module = ModuleCatalog::find($slug);
         abort_unless($module && ModuleCatalog::includesTable($slug, $table), 404);
         SmsAccess::require($module['permission']);
+        SmsTablePolicy::requireRead($table);
         abort_unless(EditableRegisters::fields($table) !== null, 404);
         SmsAccess::require(self::writePermission($slug, $table));
         abort_unless(Schema::hasTable($table),404);

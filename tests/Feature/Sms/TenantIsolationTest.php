@@ -10,7 +10,6 @@ use App\Models\User;
 use Database\Seeders\SmsPermissionSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
-use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
 class TenantIsolationTest extends TestCase
@@ -25,7 +24,7 @@ class TenantIsolationTest extends TestCase
         $membershipId = $this->addActiveMember($institutionA, $user, true);
         $this->allowPermission($institutionA, $membershipId, 'dashboard.view');
 
-        Sanctum::actingAs($user);
+        $this->actingAs($user);
         $this->getJson('/api/v1/institutions/school-a/context')
             ->assertOk()
             ->assertJsonPath('data.institution.name', 'school-a');
@@ -52,7 +51,7 @@ class TenantIsolationTest extends TestCase
             'campus_id' => $campusA->id,
         ]);
 
-        Sanctum::actingAs($user);
+        $this->actingAs($user);
         $this->getJson('/api/v1/institutions/madrasha-one/campuses')
             ->assertOk()
             ->assertJsonCount(1, 'data')
@@ -65,7 +64,7 @@ class TenantIsolationTest extends TestCase
         $institution = $this->createInstitution('college-one');
         $this->addActiveMember($institution, $user, true);
 
-        Sanctum::actingAs($user);
+        $this->actingAs($user);
         $this->getJson('/api/v1/institutions/college-one/campuses')->assertForbidden();
     }
 

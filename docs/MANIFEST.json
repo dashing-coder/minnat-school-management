@@ -1,0 +1,9 @@
+{
+  "baseline_fixture_total_records": 602,
+  "baseline_fixture_tables": 116,
+  "fresh_sql_create_tables": 126,
+  "fresh_sql_insert_tables": 117,
+  "rich_expected_student_count": 75,
+  "local_demo_username": "admin.school@example.test",
+  "note": "SQL fresh only; Laravel seeder for one-school empty baseline; no local DB accessed"
+}

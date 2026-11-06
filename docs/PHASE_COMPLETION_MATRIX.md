@@ -1,3 +1,5 @@
+> **2026-11-06 update:** This matrix describes the earlier baseline. See `docs/release/SCM_FIXES_AND_REMAINING_WORK.md` for the current staging patch, including 30 guided workflows and remaining release blockers.
+
 # CampusSphere ERP — 18-phase delivery and verification matrix
 
 **Version:** Expanded Laravel source development release — 2026-11-05.

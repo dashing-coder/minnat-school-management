@@ -5,6 +5,7 @@ use App\Services\LedgerPostingService;
 use App\Support\SmsAccess;
 use App\Support\SmsAudit;
 use App\Support\SmsMoney;
+use App\Support\SmsPayrollMath;
 use App\Support\SmsWorkflowCatalog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +19,7 @@ final class WorkflowController
 {
     private const LABELS=['student_id'=>'name','employee_id'=>'name','exam_paper_id'=>'id','student_invoice_id'=>'invoice_no',
         'library_copy_id'=>'barcode','library_loan_id'=>'id','hifz_enrollment_id'=>'id','hostel_bed_id'=>'bed_code',
-        'payment_refund_id'=>'id','student_payment_id'=>'reference_no','bank_account_id'=>'bank_name','payroll_run_id'=>'id',
+        'payment_refund_id'=>'id','student_payment_id'=>'reference_no','payslip_id'=>'id','bank_account_id'=>'bank_name','payroll_run_id'=>'id',
         'student_leave_request_id'=>'id','staff_leave_request_id'=>'id','from_enrollment_id'=>'id','admission_cycle_id'=>'title','academic_session_id'=>'name',
         'examination_id'=>'name','grading_scale_id'=>'name','fee_head_id'=>'name',
         'admission_application_id'=>'applicant_name'];
@@ -130,12 +131,17 @@ final class WorkflowController
                 'exam-mark'=>$this->mark($data),
                 'publish-results'=>$this->publish($data),
                 'fee-invoice'=>$this->invoice($data,$ledger),
+                'fee-plan-bill'=>$this->billFromPlan($data,$ledger),
                 'fee-payment'=>$this->payment($data,$ledger),
                 'refund-request'=>$this->refundRequest($data),
                 'refund-approve'=>$this->refundApprove($data,$ledger),
                 'bank-reconcile'=>$this->bankReconcile($data),
                 'payroll-run'=>$this->payroll($data),
                 'payroll-approve'=>$this->payrollApprove($data),
+                'payroll-add-earning'=>$this->payrollAdjust($data,'earning'),
+                'payroll-add-deduction'=>$this->payrollAdjust($data,'deduction'),
+                'payroll-post-liability'=>$this->payrollPostLiability($data,$ledger),
+                'payroll-record-disbursement'=>$this->payrollDisburse($data,$ledger),
                 'library-issue'=>$this->issue($data),
                 'library-return'=>$this->returnBook($data),
                 'hifz-progress'=>$this->hifz($data),
@@ -277,6 +283,22 @@ final class WorkflowController
         $exam=$this->tenantRow('examinations',(int)$paper->examination_id,true);
         if($exam->status==='published')throw ValidationException::withMessages(['exam_paper_id'=>'Published examinations are locked.']);
         $student=$this->tenantRow('students',(int)$d['student_id']);
+        // A marks-entry privilege alone does not allow editing arbitrary subjects.
+        // Academic approvers have an explicit override; normal teachers must
+        // be assigned to the examined class and subject in this session.
+        if (!SmsAccess::has('results.approve') && !SmsAccess::has('results.publish')) {
+            $teacher = DB::table('employees')->where('institution_id',SmsAccess::institutionId())
+                ->where('user_id',auth()->id())->where('status','active')->first();
+            $assigned = $teacher && DB::table('teacher_assignments as ta')
+                ->join('class_subjects as cs',function($join){
+                    $join->on('cs.id','=','ta.class_subject_id')->on('cs.institution_id','=','ta.institution_id');
+                })->where('ta.institution_id',SmsAccess::institutionId())
+                ->where('ta.employee_id',$teacher->id)
+                ->where('ta.academic_session_id',$exam->academic_session_id)
+                ->where('cs.class_level_id',$exam->class_level_id)
+                ->where('cs.subject_id',$paper->subject_id)->exists();
+            abort_unless($assigned,403,'Marks entry requires an assigned teacher or academic approval rights.');
+        }
         if((float)$d['marks']>(float)$paper->full_marks)throw ValidationException::withMessages(['marks'=>'Mark exceeds full marks.']);
         $enrolled=DB::table('enrollments as e')
             ->join('class_sections as s',fn($join)=>$join->on('s.id','=','e.class_section_id')->on('s.institution_id','=','e.institution_id'))
@@ -353,6 +375,52 @@ final class WorkflowController
         ]);
         return "Fee invoice #{$id} issued and posted to ledger.";
     }
+    /** Uses a configured fee plan: supports multiple revenue accounts and atomic posting. */
+    private function billFromPlan(array $d, LedgerPostingService $ledger): string
+    {
+        $this->allCampusesOnly();
+        $student=$this->tenantRow('students',(int)$d['student_id'],true);
+        $plan=$this->tenantRow('fee_plans',(int)$d['fee_plan_id']);
+        if($plan->status!=='active') throw ValidationException::withMessages(['fee_plan_id'=>'Fee plan must be active.']);
+        $enrolled=DB::table('enrollments as e')->join('class_sections as s',function($j){
+            $j->on('s.id','=','e.class_section_id')->on('s.institution_id','=','e.institution_id');
+        })->where('e.institution_id',SmsAccess::institutionId())->where('e.student_id',$student->id)
+            ->where('e.academic_session_id',$plan->academic_session_id)
+            ->where('s.class_level_id',$plan->class_level_id)->where('e.status','active')->exists();
+        if(!$enrolled) throw ValidationException::withMessages(['student_id'=>'Student is not active in this fee plan session/class.']);
+        if($d['due_on']<$d['issued_on']) throw ValidationException::withMessages(['due_on'=>'Due date must follow issue date.']);
+        if(DB::table('student_invoices')->where('institution_id',SmsAccess::institutionId())
+            ->where('invoice_no',$d['invoice_no'])->exists())
+            throw ValidationException::withMessages(['invoice_no'=>'Invoice number is already used.']);
+        $this->account((int)$d['receivable_account_id'],'asset');
+        $lines=DB::table('fee_plan_lines as l')->join('fee_heads as h',function($j){
+            $j->on('h.id','=','l.fee_head_id')->on('h.institution_id','=','l.institution_id');
+        })->where('l.institution_id',SmsAccess::institutionId())->where('l.fee_plan_id',$plan->id)
+            ->select('l.amount','h.id as head_id','h.name','h.revenue_account_id')->get();
+        if($lines->isEmpty()) throw ValidationException::withMessages(['fee_plan_id'=>'Fee plan has no charge lines.']);
+        $total=0;$revenue=[];
+        foreach($lines as $line) {
+            $amount=SmsMoney::cents((string)$line->amount);
+            if($amount<1) throw ValidationException::withMessages(['fee_plan_id'=>'Fee plan lines must be positive.']);
+            $this->account((int)$line->revenue_account_id,'income');
+            $total+=$amount;
+            $revenue[(int)$line->revenue_account_id]=($revenue[(int)$line->revenue_account_id]??0)+$amount;
+        }
+        $id=$this->insert('student_invoices',[
+            'student_id'=>$student->id,'invoice_no'=>$d['invoice_no'],
+            'issued_on'=>$d['issued_on'],'due_on'=>$d['due_on'],
+            'total_amount'=>SmsMoney::decimal($total),'paid_amount'=>'0.00','status'=>'unpaid'
+        ],'fee.invoice.plan');
+        foreach($lines as $line) $this->insert('student_invoice_lines',[
+            'student_invoice_id'=>$id,'fee_head_id'=>$line->head_id,
+            'description'=>$line->name,'amount'=>SmsMoney::decimal(SmsMoney::cents((string)$line->amount))
+        ],'fee.invoice.plan.line');
+        $entries=[['account_id'=>(int)$d['receivable_account_id'],'debit'=>SmsMoney::decimal($total),'credit'=>'0.00']];
+        foreach($revenue as $account=>$cents) $entries[]=['account_id'=>$account,'debit'=>'0.00','credit'=>SmsMoney::decimal($cents)];
+        $ledger->post('fee_invoice',(string)$id,'Fee plan invoice '.$d['invoice_no'],$d['issued_on'],$entries);
+        return "Invoice #{$id} created with {$lines->count()} fee plan lines and a balanced journal.";
+    }
+
     private function payment(array $d,LedgerPostingService $ledger): string
     {
         $this->allCampusesOnly();
@@ -407,8 +475,8 @@ final class WorkflowController
         $originalActor=DB::table('sms_audit_logs')->where('institution_id',SmsAccess::institutionId())
             ->where('action','refund.request')->where('resource_type','payment_refunds')->where('resource_id',(string)$refund->id)
             ->orderByDesc('id')->value('actor_user_id');
-        if($originalActor && (int)$originalActor===(int)auth()->id())
-            throw ValidationException::withMessages(['payment_refund_id'=>'A different authorized user must approve this refund.']);
+        if(!$originalActor || (int)$originalActor===(int)auth()->id())
+            throw ValidationException::withMessages(['payment_refund_id'=>'Refund originator audit evidence is required and a different authorized user must approve.']);
         $payment=$this->tenantRow('student_payments',(int)$refund->student_payment_id,true);
         $invoice=$this->tenantRow('student_invoices',(int)$payment->student_invoice_id,true);
         $receivableAccount=$this->invoiceReceivable($invoice);
@@ -447,6 +515,42 @@ final class WorkflowController
         ],'accounting.reconcile');
         return "Bank comparison #{$id}: {$status}. Variances require manual reconciliation.";
     }
+    /** Draft-only payroll adjustments; preserve line-item accounting evidence. */
+    private function payrollAdjust(array $d, string $type): string
+    {
+        $this->allCampusesOnly();
+        $slip=$this->tenantRow('payslips',(int)$d['payslip_id'],true);
+        $run=$this->tenantRow('payroll_runs',(int)$slip->payroll_run_id,true);
+        if($slip->status!=='draft'||$run->status!=='draft')
+            throw ValidationException::withMessages(['payslip_id'=>'Only a draft payroll can be adjusted.']);
+        $amount=SmsMoney::cents((string)$d['amount']);
+        if($amount<1)throw ValidationException::withMessages(['amount'=>'Amount must be positive.']);
+        $liability=null;
+        if($type==='deduction') {
+            $liability=(int)$d['liability_account_id'];
+            $this->account($liability,'liability');
+        }
+        $id=$this->insert('payslip_items',[
+            'payslip_id'=>$slip->id,'item_type'=>$type,
+            'liability_account_id'=>$liability,'description'=>$d['description'],
+            'amount'=>SmsMoney::decimal($amount),
+        ],'payroll.adjust.'.$type);
+        $items=DB::table('payslip_items')->where('institution_id',SmsAccess::institutionId())
+            ->where('payslip_id',$slip->id)->get()->all();
+        try {$totals=SmsPayrollMath::totals($items);}
+        catch (\InvalidArgumentException $e) {
+            throw ValidationException::withMessages(['amount'=>$e->getMessage()]);
+        }
+        DB::table('payslips')->where('institution_id',SmsAccess::institutionId())
+            ->where('id',$slip->id)->update([
+                'gross_amount'=>SmsMoney::decimal($totals['gross']),
+                'deduction_amount'=>SmsMoney::decimal($totals['deductions']),
+                'net_amount'=>SmsMoney::decimal($totals['net']),
+                'updated_at'=>now(),
+            ]);
+        return "Payroll item #{$id} saved; gross and net recalculated. No payment made.";
+    }
+
     private function payrollApprove(array $d): string
     {
         $this->allCampusesOnly();
@@ -455,13 +559,111 @@ final class WorkflowController
         $generator=DB::table('sms_audit_logs')->where('institution_id',SmsAccess::institutionId())
             ->where('action','payroll.draft')->where('resource_type','payroll_runs')->where('resource_id',(string)$run->id)
             ->orderByDesc('id')->value('actor_user_id');
-        if($generator && (int)$generator===(int)auth()->id())
-            throw ValidationException::withMessages(['payroll_run_id'=>'A separate authorized approver is required.']);
+        if(!$generator || (int)$generator===(int)auth()->id())
+            throw ValidationException::withMessages(['payroll_run_id'=>'Payroll originator audit evidence is required and a separate approver is needed.']);
+        $draftSlips=DB::table('payslips')->where('institution_id',SmsAccess::institutionId())
+            ->where('payroll_run_id',$run->id)->lockForUpdate()->get();
+        if($draftSlips->isEmpty())throw ValidationException::withMessages(['payroll_run_id'=>'No payslips.']);
+        foreach($draftSlips as $slip){
+            $items=DB::table('payslip_items')->where('institution_id',SmsAccess::institutionId())
+                ->where('payslip_id',$slip->id)->get()->all();
+            try {$t=SmsPayrollMath::totals($items);}
+            catch(\InvalidArgumentException $e){throw ValidationException::withMessages(['payroll_run_id'=>$e->getMessage()]);}
+            if($slip->status!=='draft'||$t['gross']!==SmsMoney::cents((string)$slip->gross_amount)
+                ||$t['deductions']!==SmsMoney::cents((string)$slip->deduction_amount)
+                ||$t['net']!==SmsMoney::cents((string)$slip->net_amount))
+                throw ValidationException::withMessages(['payroll_run_id'=>'Payslip item totals do not reconcile.']);
+            foreach($t['withholdings'] as $accountId=>$cents) $this->account((int)$accountId,'liability');
+        }
         DB::table('payroll_runs')->where('institution_id',SmsAccess::institutionId())->where('id',$run->id)->update(['status'=>'approved','updated_at'=>now()]);
         DB::table('payslips')->where('institution_id',SmsAccess::institutionId())->where('payroll_run_id',$run->id)->update(['status'=>'approved','updated_at'=>now()]);
         SmsAudit::record('payroll.approve','payroll_runs',$run->id);
         return "Payroll #{$run->id} approved. Payment disbursement remains a separate task.";
     }
+    /** Accounting *recognition* only; approval and real bank payout are separate. */
+    private function payrollPostLiability(array $d, LedgerPostingService $ledger): string
+    {
+        $this->allCampusesOnly();
+        $run=$this->tenantRow('payroll_runs',(int)$d['payroll_run_id'],true);
+        if($run->status!=='approved') throw ValidationException::withMessages(['payroll_run_id'=>'Approve payroll before posting.']);
+        $this->account((int)$d['expense_account_id'],'expense');
+        $this->account((int)$d['payable_account_id'],'liability');
+        if((int)$d['expense_account_id']===(int)$d['payable_account_id'])
+            throw ValidationException::withMessages(['payable_account_id'=>'Accounts must differ.']);
+        $slips=DB::table('payslips')->where('institution_id',SmsAccess::institutionId())
+            ->where('payroll_run_id',$run->id)->get();
+        if($slips->isEmpty() || $slips->contains(fn($p)=>$p->status!=='approved'))
+            throw ValidationException::withMessages(['payroll_run_id'=>'All payslips must be approved.']);
+        $gross=0; $net=0; $withholding=[];
+        foreach($slips as $slip) {
+            $items=DB::table('payslip_items')->where('institution_id',SmsAccess::institutionId())
+                ->where('payslip_id',$slip->id)->get()->all();
+            try {$t=SmsPayrollMath::totals($items);}
+            catch(\InvalidArgumentException $e){throw ValidationException::withMessages(['payroll_run_id'=>$e->getMessage()]);}
+            if($t['gross']!==SmsMoney::cents((string)$slip->gross_amount)
+               ||$t['net']!==SmsMoney::cents((string)$slip->net_amount)
+               ||$t['deductions']!==SmsMoney::cents((string)$slip->deduction_amount))
+                throw ValidationException::withMessages(['payroll_run_id'=>'Payslip totals differ from approved line items.']);
+            $gross+=$t['gross'];$net+=$t['net'];
+            foreach($t['withholdings'] as $accountId=>$amount) {
+                $this->account((int)$accountId,'liability');
+                if((int)$accountId===(int)$d['payable_account_id'])
+                    throw ValidationException::withMessages(['payable_account_id'=>'Wage payable and withholding liabilities must use different accounts.']);
+                $withholding[$accountId]=($withholding[$accountId]??0)+$amount;
+            }
+        }
+        if($net<1)throw ValidationException::withMessages(['payroll_run_id'=>'No net payable amount.']);
+        if($d['posted_on']<$run->period_start)
+            throw ValidationException::withMessages(['posted_on'=>'Posting date precedes payroll period.']);
+        $lines=[
+            ['account_id'=>(int)$d['expense_account_id'],'debit'=>SmsMoney::decimal($gross),'credit'=>'0.00'],
+            ['account_id'=>(int)$d['payable_account_id'],'debit'=>'0.00','credit'=>SmsMoney::decimal($net)],
+        ];
+        foreach($withholding as $accountId=>$amount) $lines[]=[
+            'account_id'=>(int)$accountId,'debit'=>'0.00','credit'=>SmsMoney::decimal($amount),
+        ];
+        $ledger->post('payroll_liability',(string)$run->id,'Payroll '.$run->id.' gross/net/withholding liabilities',$d['posted_on'],$lines);
+        return "Payroll #{$run->id} liability posted. No salary was actually transferred.";
+    }
+
+    /** Record only a payment that the institution verified outside this ERP. */
+    private function payrollDisburse(array $d, LedgerPostingService $ledger): string
+    {
+        $this->allCampusesOnly();
+        $run=$this->tenantRow('payroll_runs',(int)$d['payroll_run_id'],true);
+        if($run->status!=='approved') throw ValidationException::withMessages(['payroll_run_id'=>'Payroll must be approved and unpaid.']);
+        $original=DB::table('ledger_journals')->where('institution_id',SmsAccess::institutionId())
+            ->where('source_type','payroll_liability')->where('source_reference',(string)$run->id)
+            ->where('status','posted')->first();
+        if(!$original) throw ValidationException::withMessages(['payroll_run_id'=>'Payroll liability must be posted first.']);
+        $payableLine=DB::table('ledger_lines')->where('institution_id',SmsAccess::institutionId())
+            ->where('ledger_journal_id',$original->id)->where('credit','>',0)->first();
+        if(!$payableLine) throw ValidationException::withMessages(['payroll_run_id'=>'Payable liability journal is missing.']);
+        $this->account((int)$payableLine->account_id,'liability');
+        $this->account((int)$d['cash_account_id'],'asset');
+        if((int)$payableLine->account_id===(int)$d['cash_account_id'])
+            throw ValidationException::withMessages(['cash_account_id'=>'Cash account must differ from liability.']);
+        $total=0;
+        $slips=DB::table('payslips')->where('institution_id',SmsAccess::institutionId())
+            ->where('payroll_run_id',$run->id)->get();
+        if($slips->isEmpty() || $slips->contains(fn($p)=>$p->status!=='approved'))
+            throw ValidationException::withMessages(['payroll_run_id'=>'Payroll contains unapproved payslips.']);
+        foreach($slips as $slip) $total+=SmsMoney::cents((string)$slip->net_amount);
+        if($total!==SmsMoney::cents((string)$payableLine->credit))
+            throw ValidationException::withMessages(['payroll_run_id'=>'Payout does not match posted payable.']);
+        $amount=SmsMoney::decimal($total);
+        $ledger->post('payroll_disbursement',(string)$run->id,'Verified salary payment for payroll '.$run->id,$d['paid_on'],[
+            ['account_id'=>(int)$payableLine->account_id,'debit'=>$amount,'credit'=>'0.00'],
+            ['account_id'=>(int)$d['cash_account_id'],'debit'=>'0.00','credit'=>$amount],
+        ]);
+        DB::table('payroll_runs')->where('institution_id',SmsAccess::institutionId())->where('id',$run->id)
+            ->update(['status'=>'paid','updated_at'=>now()]);
+        DB::table('payslips')->where('institution_id',SmsAccess::institutionId())->where('payroll_run_id',$run->id)
+            ->update(['status'=>'paid','updated_at'=>now()]);
+        SmsAudit::record('payroll.disbursement.recorded','payroll_runs',$run->id);
+        return "Payroll #{$run->id} marked paid and balanced cash/payable entry posted. Confirm external bank proof.";
+    }
+
     private function reviewLeave(array $d,string $table,string $key): string
     {
         $row=$this->tenantRow($table,(int)$d[$key],true);
@@ -518,6 +720,10 @@ final class WorkflowController
         $enroll=$this->tenantRow('hifz_enrollments',(int)$d['hifz_enrollment_id']);
         if($enroll->status!=='active'||(int)$d['juz_completed']>(int)$enroll->target_juz || (float)$d['accuracy_percent']>100)
             throw ValidationException::withMessages(['accuracy_percent'=>'Hifz enrollment must be active; accuracy <=100% and Juz cannot exceed target.']);
+        $latest=DB::table('hifz_progress_logs')->where('institution_id',SmsAccess::institutionId())
+            ->where('hifz_enrollment_id',$enroll->id)->orderByDesc('logged_on')->orderByDesc('id')->first();
+        if($latest && ($d['logged_on'] < $latest->logged_on || (int)$d['juz_completed'] < (int)$latest->juz_completed))
+            throw ValidationException::withMessages(['juz_completed'=>'Hifz progress cannot be backdated or decrease total completed Juz; request a reviewed correction instead.']);
         $id=$this->insert('hifz_progress_logs',[
             'hifz_enrollment_id'=>$enroll->id,'logged_on'=>$d['logged_on'],'sabaq'=>$d['sabaq'],
             'sabqi'=>$d['sabqi'],'manzil'=>$d['manzil'],'juz_completed'=>$d['juz_completed'],

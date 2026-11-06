@@ -11,6 +11,8 @@ Route::middleware('auth')->group(function() {
     Route::post('/choose-institution',[InstitutionController::class,'select'])->name('institution.select');
     Route::middleware('sms.institution')->group(function() {
         Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+        Route::post('/integrations/demo-payment-intents',[\App\Http\Controllers\DemoPaymentIntentController::class,'store'])
+            ->middleware('throttle:10,1')->name('demo.payment.intent');
         Route::get('/my-portal',[PortalController::class,'index'])->name('portal');
         Route::get('/students',[StudentController::class,'index'])->name('students.index');
         Route::get('/students/create',[StudentController::class,'create'])->name('students.create');
@@ -23,6 +25,7 @@ Route::middleware('auth')->group(function() {
         Route::post('/security/users',[UsersController::class,'store'])->name('users.store');
         Route::put('/security/users/{membershipId}',[UsersController::class,'assign'])->whereNumber('membershipId')->name('users.assign');
         Route::get('/reports/{report}',[ReportsController::class,'show'])->name('report.show');
+        Route::get('/reports/{report}/csv',[ReportsController::class,'export'])->name('report.export');
         Route::get('/operations/{flow}',[WorkflowController::class,'show'])->name('workflow.show');
         Route::post('/operations/{flow}',[WorkflowController::class,'store'])->name('workflow.store');
         Route::get('/register/{slug}/{table}/create',[RegisterEditorController::class,'create'])->name('register.create');

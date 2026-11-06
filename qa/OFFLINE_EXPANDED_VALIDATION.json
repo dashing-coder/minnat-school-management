@@ -1,9 +1,9 @@
 {
-  "php_files": 68,
+  "php_files": 113,
   "php_lint_errors": [],
   "sample_records": 602,
   "module_count": 20,
-  "workflows": 27,
+  "workflows": 32,
   "editable_registers": 50,
   "offline_pass": true,
   "failures": []

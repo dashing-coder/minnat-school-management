@@ -31,7 +31,13 @@ final class LedgerPostingService
             $debit+=$d;$credit+=$c;
         }
         if ($debit<1 || $debit!==$credit)throw ValidationException::withMessages(['amount'=>'Journal debit and credit must be equal and positive.']);
-        // Source-level idempotency is enforced under the transaction lock.
+        // Lock a *present* parent row; locking a nonexistent journal is not a
+        // race barrier on all DB isolation levels. The unique DB key is the
+        // final guarantee under concurrent POST requests.
+        if (trim($sourceType)==='' || trim($sourceReference)==='') {
+            throw ValidationException::withMessages(['reference_no'=>'A stable posting source is required.']);
+        }
+        DB::table('institutions')->where('id',$tenant)->lockForUpdate()->first();
         $existing=DB::table('ledger_journals')->where('institution_id',$tenant)->where('source_type',$sourceType)->where('source_reference',$sourceReference)->lockForUpdate()->first();
         if($existing)throw ValidationException::withMessages(['reference_no'=>'This transaction has already been posted.']);
         $id=DB::table('ledger_journals')->insertGetId([

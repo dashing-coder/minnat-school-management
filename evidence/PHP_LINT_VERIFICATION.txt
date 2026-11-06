@@ -1,0 +1,3 @@
+Offline PHP syntax checks: 71/71 passed.
+Directories: app, bootstrap, config, database, routes, tests.
+This is syntax lint only, not Laravel runtime/business logic validation.
