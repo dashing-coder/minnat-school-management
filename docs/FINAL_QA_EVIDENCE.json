@@ -1,0 +1,48 @@
+{
+  "package_name": "CampusSphere ERP UI/UX Final QA Staging Source",
+  "source": "Latest November 6 release candidate based on uploaded Laravel source; no access to the user’s live MySQL",
+  "changed_files": 18,
+  "changed_file_paths": [
+    "README_FINAL_QA_UIUX.md",
+    "app/Http/Controllers/AttendanceController.php",
+    "phpunit.xml",
+    "public/css/app.css",
+    "public/js/erp-ui.js",
+    "qa/FINAL_FUNCTIONAL_UX_CHECKLIST.csv",
+    "resources/views/attendance/mark.blade.php",
+    "resources/views/auth/login.blade.php",
+    "resources/views/dashboard.blade.php",
+    "resources/views/layouts/app.blade.php",
+    "resources/views/modules/edit.blade.php",
+    "resources/views/modules/records.blade.php",
+    "resources/views/students/form.blade.php",
+    "resources/views/students/index.blade.php",
+    "resources/views/workflows/form.blade.php",
+    "scripts/qa_ui_source.php",
+    "tests/Feature/Sms/StudentAttendanceJourneyTest.php",
+    "tests/TestCase.php"
+  ],
+  "php_files_linted": 115,
+  "php_lint_failed": 0,
+  "checks": {
+    "js_syntax": {
+      "passed": true,
+      "output": ""
+    },
+    "static_ui_qa": {
+      "passed": true,
+      "output": "PASS  layout_skip_link\nPASS  layout_main_landmark\nPASS  navigation_keyboard_support\nPASS  nav_module_filter\nPASS  attendance_filters_enrollment\nPASS  attendance_permissions\nPASS  test_db_protection\nPASS  csrf_attendance\nPASS  csrf_student\nPASS  feature_journey_test"
+    },
+    "payroll_math_smoke": {
+      "passed": true,
+      "output": "PASS payroll smoke net=27500.00"
+    }
+  },
+  "manual_qa_cases_prepared": 38,
+  "laravel_tests_executed": false,
+  "laravel_tests_limitation": "Composer/vendor dependencies absent in staged baseline; system PHP lacks extensions including mbstring, dom and a PDO MySQL driver; no connection to user local database.",
+  "browser_device_tests_executed": false,
+  "test_database_safety": "TestCase guard rejects any database name without separate test/testing/ci marker.",
+  "production_ready": false,
+  "live_data_changed": false
+}

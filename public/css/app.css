@@ -22,3 +22,60 @@
 .form-field small{font-size:11px;color:#66748a}
 .form-action-bar{display:flex;gap:12px;padding:20px 28px 28px;border-top:1px solid #e8eef4}
 @media(max-width:680px){.module-form-grid{grid-template-columns:1fr;padding:20px}.form-action-bar{flex-wrap:wrap;padding:20px}}
+
+/* CampusSphere UI/UX QA release — accessibility, responsive navigation, legibility */
+:root{--muted:#52647f;--line:#dce4f1;--bg:#f3f6fc;--shadow:0 10px 25px rgba(22,39,75,.055)}
+.app-body{overflow-x:hidden}
+.app-shell,.main-shell{min-width:0}
+.sidebar{scrollbar-width:thin;scrollbar-color:#7b8eb1 transparent}
+.skip-link{position:fixed;left:12px;top:-80px;z-index:9999;background:#fff;color:#193052;border:2px solid #234abf;border-radius:9px;padding:11px 18px;box-shadow:0 8px 18px #182d4250}
+.skip-link:focus{top:10px}
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:3px solid #ea9c23!important;outline-offset:3px!important}
+.sidebar-search-label{display:block;font-size:11px;color:#b9c9e5;font-weight:750;margin:15px 17px 5px}
+.sidebar-search{display:block;width:calc(100% - 34px);margin:0 17px 14px;min-height:39px;border:1px solid #65799c;background:#213658;color:#fff;border-radius:9px;padding:8px 12px;font-size:13px}
+.sidebar-search::placeholder{color:#cbd5e4}
+.nav-no-results{padding:12px 17px;color:#cbd5e4;font-size:12px}
+.nav-link[hidden],.nav-no-results[hidden],.nav-backdrop[hidden]{display:none!important}
+.nav-link[aria-current="page"]{box-shadow:inset 3px 0 #a1c9ff}
+.nav-link:hover{background:rgba(255,255,255,.11)}
+.nav-backdrop{position:fixed;inset:0;background:rgba(12,24,46,.56);z-index:99}
+.nav-open{overflow:hidden}
+.topbar{gap:15px}
+.topbar-right{min-width:0}
+.institution-chip{max-width:min(340px,45vw);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
+.alert.error{border-left:4px solid #b2293e;color:#801f33}
+.alert.error ul{margin:7px 0 0;padding-left:21px}
+.alert.success{border-left:4px solid #127559}
+.status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#14a889;margin-left:8px}
+.stats-grid{grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr))}
+.stat-card{transition:box-shadow .2s,transform .2s;border-color:#e0e7f2}
+.stat-card:hover{box-shadow:0 16px 35px rgba(30,51,84,.10);transform:translateY(-2px)}
+.stat-label,.table-card-head small,.page-title-row p,.panel-helper{color:#596d86}
+.stat-note,.recent-list small,.notice-item small,.page-footer{color:#64758a}
+.table-scroll{max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:thin}
+.table-scroll:focus{outline:2px solid #5678ce;outline-offset:-2px}
+.data-table th{color:#4b5e79;font-weight:800}
+.data-table td{color:#354966}
+.data-table tbody tr:focus-within{background:#f0f5ff}
+.data-table caption{padding:10px 18px;text-align:left;font-size:12px;color:#52647f}
+.table-card-head{flex-wrap:wrap}
+.search-form input{width:100%}
+.search-form label{font-size:12px;font-weight:750;color:#3d4f68}
+.clear-link{padding:7px 5px;color:#2b50bc;font-size:12px;font-weight:750;text-decoration:underline}
+.field label{display:block;color:#24364f;font-weight:750;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;min-height:41px}
+.field [aria-invalid="true"],.form-field [aria-invalid="true"]{border:2px solid #bd3445!important}
+.field-error{display:block;font-size:12px;color:#a12739;margin-top:5px;font-weight:650}
+.field-help{font-size:12px;color:#52647f;margin-top:6px}
+.form-field small{color:#596d84}
+.form-panel form,.table-card form{min-width:0}
+.form-action-bar .btn:disabled,.form-footer button:disabled{opacity:.65;cursor:progress}
+.module-summary{flex-wrap:wrap}
+.progress-track[role="progressbar"]{position:relative}
+.empty-state{color:#52647f;line-height:1.8}
+.empty-state a{color:#2553bd;text-decoration:underline;font-weight:750}
+@media(max-width:900px){.sidebar{height:100dvh;max-height:100dvh;overflow-y:auto;left:-265px}.sidebar.mobile-open{left:0}.mobile-nav-btn{min-height:40px;min-width:42px}}
+@media(max-width:610px){.topbar-right .institution-chip{max-width:50vw;font-size:11px}.topbar-logout{font-size:11px}.page-title-row .row-actions{flex-wrap:wrap}.table-scroll{border-top:1px solid #edf1f7}.stat-value{font-size:clamp(23px,6vw,29px)}.form-footer{align-items:stretch}.form-footer button{width:100%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
