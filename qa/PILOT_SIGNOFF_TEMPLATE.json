@@ -1,0 +1,43 @@
+{
+  "decision": "NOT APPROVED",
+  "approved_by": "",
+  "approved_at": "",
+  "open_p0_count": null,
+  "restore_drill": "NOT RUN",
+  "security_review": "NOT RUN",
+  "role_signoffs": {
+    "Accountant": {
+      "tester": "",
+      "approved_at": ""
+    },
+    "Admissions Officer": {
+      "tester": "",
+      "approved_at": ""
+    },
+    "HR/Payroll Officer": {
+      "tester": "",
+      "approved_at": ""
+    },
+    "IT/Operations": {
+      "tester": "",
+      "approved_at": ""
+    },
+    "Institution Administrator": {
+      "tester": "",
+      "approved_at": ""
+    },
+    "Parent/Student": {
+      "tester": "",
+      "approved_at": ""
+    },
+    "Security Reviewer": {
+      "tester": "",
+      "approved_at": ""
+    },
+    "Teacher": {
+      "tester": "",
+      "approved_at": ""
+    }
+  },
+  "notes": "Authorized real-user signoffs only. Never mark approved from automated script."
+}

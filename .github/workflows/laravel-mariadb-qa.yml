@@ -20,7 +20,7 @@ jobs:
     env:
       APP_ENV: testing
       APP_DEBUG: false
-      APP_URL: http://127.0.0.1
+      APP_URL: http://127.0.0.1:8001
       DB_CONNECTION: mysql
       DB_HOST: 127.0.0.1
       DB_PORT: 3306
@@ -58,3 +58,43 @@ jobs:
           code=0
           php artisan sms:finance:reconcile --json || code=$?
           test "$code" -ne 1
+      # These browser tests are executed only against a disposable GitHub Actions DB.
+      # Never copy migrate:fresh or the demo seeder command to your working scm-system database.
+      - name: Prepare disposable browser QA fixtures
+        env:
+          SMS_ALLOW_DEMO_SEED: 'true'
+        run: |
+          test "$DB_DATABASE" = "campussphere_ci"
+          php artisan migrate:fresh --force
+          php artisan db:seed --class=SmsFullDemoSeeder
+      - name: Configure Node for Playwright
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser QA dependencies
+        run: npm install --no-audit --no-fund
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Start disposable local Laravel server
+        run: |
+          php artisan serve --host=127.0.0.1 --port=8001 > /tmp/campussphere-ci-server.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -sf http://127.0.0.1:8001/login > /dev/null; then exit 0; fi
+            sleep 2
+          done
+          cat /tmp/campussphere-ci-server.log
+          exit 1
+      - name: Automated Chromium desktop / tablet / mobile UI smoke
+        env:
+          QA_BASE_URL: http://127.0.0.1:8001
+          QA_ADMIN_EMAIL: admin.school@example.test
+          QA_ADMIN_PASSWORD: SchoolAdmin@2026
+        run: npm run qa:browser
+      - name: Attach sanitized browser test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: campussphere-browser-qa-results
+          path: qa-results/browser-results.json
+          if-no-files-found: ignore
+          retention-days: 7

@@ -7,3 +7,10 @@
 /storage/framework/views/*
 /storage/framework/sessions/*
 /bootstrap/cache/*.php
+
+# QA evidence may contain private data or active authenticated sessions.
+/qa/.auth/
+/qa-results/
+/playwright-report/
+/test-results/
+/.env.testing

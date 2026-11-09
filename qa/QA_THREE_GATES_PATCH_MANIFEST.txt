@@ -1,0 +1,27 @@
+CampusSphere 2026-11-09: QA runtime/browser/pilot patch
+
+New/modified files in this patch:
+- .gitignore
+- .github/workflows/laravel-mariadb-qa.yml
+- package.json
+- database/seeders/SmsFullDemoSeeder.php
+- scripts/qa_runtime_preflight.php
+- scripts/qa_pilot_gate.py
+- scripts/qa_browser_summary.mjs
+- scripts/Run-StagingQA-Safe.ps1
+- scripts/Run-Final-ThreeGate-QA.ps1
+- qa/playwright.config.mjs
+- qa/PILOT_CASES_TEMPLATE.csv
+- qa/PILOT_SIGNOFF_TEMPLATE.json
+- docs/qa/THREE_GATE_EXECUTION_NOV09.md
+- docs/qa/BANGLA_THREE_GATE_GUIDE.md
+- docs/qa/THREE_GATE_VALIDATION_REPORT.json
+- START_HERE_3_QA_GATES.md
+- tests/e2e/auth.setup.spec.mjs
+- tests/e2e/portal-readonly.spec.mjs
+- tests/e2e/guest-boundary.spec.mjs
+- tests/qa/test_pilot_gate.py
+- tests/Feature/Sms/DemoSchoolHttpJourneyTest.php
+- tests/Feature/Sms/InstitutionSelectionPermissionsTest.php
+
+Source package is NOT production deployment and does NOT modify scm-system.sql.

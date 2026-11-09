@@ -39,7 +39,8 @@ final class SmsFullDemoSeeder extends Seeder
             foreach ($data as $table => $rows) {
                 if ($table === 'users') {
                     foreach ($rows as &$user) {
-                        $password = Str::random(28);
+                        $password = $user['email'] === 'admin.school@example.test'
+                            ? 'SchoolAdmin@2026' : Str::random(28);
                         $passwords[$user['email']] = $password;
                         $user['password'] = Hash::make($password);
                     }
@@ -51,11 +52,14 @@ final class SmsFullDemoSeeder extends Seeder
             }
         }, 3);
 
-        // One-time credentials: copy them into your local password manager.
-        $this->command?->warn('DEMO ACCOUNTS ONLY — locally generated passwords:');
-        foreach ($passwords as $email => $password) {
-            $this->command?->line($email . ' : ' . $password);
+        // Local demo-only credentials; never use the fixed school admin password in production.
+        // CI/testing logs can be shared with contributors: never print credentials there.
+        if (! app()->environment('testing')) {
+            $this->command?->warn('DEMO ACCOUNTS ONLY — school admin uses the requested local password; others are generated:');
+            foreach ($passwords as $email => $password) {
+                $this->command?->line($email . ' : ' . $password);
+            }
+            $this->command?->warn('Disable SMS_ALLOW_DEMO_SEED after setup. Never expose these credentials.');
         }
-        $this->command?->warn('Disable SMS_ALLOW_DEMO_SEED after setup. Never expose these credentials.');
     }
 }

@@ -1,0 +1,17 @@
+{
+  "audit_date": "2026-11-09",
+  "basis": "archived UIUX staging source and bundled fixtures, not current live local database",
+  "static_php_files_passed": 99,
+  "ui_source_checks_passed": 10,
+  "fixture_checks_passed": 12,
+  "fixture_checks_failed": 0,
+  "fixture_records": 604,
+  "fixture_tables": 116,
+  "defined_modules": 20,
+  "defined_workflows": 32,
+  "manual_uat_cases_total": 38,
+  "manual_uat_cases_executed": 0,
+  "mysql_integration_tests": "NOT EXECUTED",
+  "production_deployed": false,
+  "note": "Rerunning demo seed on populated working database is prohibited; existing user data untouched."
+}

@@ -1,0 +1,21 @@
+CampusSphere QA-Nov09 PATCH contents
+
+MODIFIED (current demo data never overwritten):
+- database/seeders/SmsFullDemoSeeder.php
+- database/seeders/data/sms_demo_fixtures.json
+
+NEW:
+- scripts/qa_demo_fixture.php
+- scripts/Run-StagingQA-Safe.ps1
+- tests/Unit/SmsDemoFixtureQualityTest.php
+- docs/qa/QA_PROGRESS_2026_11_09.md
+- qa/QA_EVIDENCE_SUMMARY_2026_11_09.json
+- qa/LIVE_QA_STATUS_NOV09.csv
+- qa/UAT_SIGNOFF_TEMPLATE.md
+- qa/QA_DIFF_MANIFEST.txt
+- START_HERE_QA_NOV09.md
+
+IMPORTANT
+1. No .env, passwords, composer vendor libraries, SQL dumps, or production credentials included.
+2. Demo fixture corrections are only for fresh empty demo databases.
+3. No live Laravel/MySQL testing or actual production deployment was performed.
