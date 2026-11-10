@@ -37,3 +37,6 @@ Route::middleware('auth')->group(function() {
         Route::get('/modules/{slug}/{table}/export',[ModulesController::class,'export'])->name('module.export');
     });
 });
+
+// Public School Site — safe additive routes
+require __DIR__.'/school_site.php';
